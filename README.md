@@ -6,22 +6,19 @@
 <!-- badges: start -->
 
 [![Travis build
-status](https://travis-ci.org/rstudio/sortable.svg?branch=master)](https://travis-ci.org/rstudio/sortable)
+status](https://travis-ci.org/rstudio/parsons.svg?branch=master)](https://travis-ci.org/rstudio/parsons)
 [![CRAN
-version](http://www.r-pkg.org/badges/version/sortable)](https://cran.r-project.org/package=sortable)
-[![sortable downloads per
-month](http://cranlogs.r-pkg.org/badges/sortable)](http://www.rpackages.io/package/sortable)
+version](http://www.r-pkg.org/badges/version/parsons)](https://cran.r-project.org/package=parsons)
+[![parsons downloads per
+month](http://cranlogs.r-pkg.org/badges/parsons)](http://www.rpackages.io/package/parsons)
 [![Codecov test
-coverage](https://codecov.io/gh/rstudio/sortable/branch/master/graph/badge.svg)](https://codecov.io/gh/rstudio/sortable?branch=master)
+coverage](https://codecov.io/gh/rstudio/parsons/branch/master/graph/badge.svg)](https://codecov.io/gh/rstudio/parsons?branch=master)
 [![Lifecycle:
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 <!-- badges: end -->
 
-The `sortable` package enables drag-and-drop behaviour in your Shiny
-apps. It does this by exposing the functionality of the
-[sortable.js](https://sortablejs.github.io/Sortable/) JavaScript library
-as an [htmlwidget](https://htmlwidgets.org) in R, so you can use this in
-Shiny apps and widgets, `learnr` tutorials as well as R Markdown.
+Use the `parsons` package to create Parsons problems for teaching
+progamming. You can create custom questions in your `learnr` tutorials.
 
 ## Installation
 

@@ -65,5 +65,3 @@ knitr::read_chunk(
 <center>
 <img src="man/figures/parsons_app.gif" style = 'width:600px;'></img>
 </center>
-
-
