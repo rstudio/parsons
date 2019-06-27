@@ -1,0 +1,18 @@
+destination: docs
+reference:
+- title: Learnr question types
+  desc: New question types for learnr tutorials
+  contents:
+  - starts_with("question")
+- title: Widgets
+  desc: These functions create htmlwidgets with drag-and-drop behaviour
+  contents:
+  - parsons
+- title: Widget style sheets
+  desc: Control the look-and-feel of your widgets
+  contents:
+  - starts_with("css")
+- title: Package documentation
+  desc: ~
+  contents:
+  - parsons

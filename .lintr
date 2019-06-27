@@ -1,0 +1,7 @@
+linters: with_defaults(
+    line_length_linter(100),
+    NULL
+  )
+exclusions: list(
+    "tests/testthat/test-htmltools.R",
+  )

@@ -1,0 +1,32 @@
+Package: parsons
+Type: Package
+Title: Create Parsons Programming Problems in 'learnr` Tutorials
+Version: 0.0.1.9000
+Date: 2019-06-27
+Authors@R: c(
+    person("Andrie", "de Vries", role = c("cre", "aut"), email = "apdevries@gmail.com"),
+    person("Barret", "Schloerke", role = "ctb", email = "barret@rstudio.com")
+    )
+Description: Create Parsons Programming Problems in 'learnr` Tutorials.
+URL: https://github.com/rstudio/parsons
+BugReports: https://github.com/rstudio/parsons/issues
+License: MIT + file LICENSE
+LazyData: TRUE
+Imports:
+    sortable,
+    htmltools,
+    htmlwidgets,
+    learnr (>= 0.9.2),
+    shiny,
+    assertthat
+Suggests:
+    knitr,
+    testthat (>= 2.1.0),
+    withr
+Remotes: 
+    rstudio/sortable
+    andrie/learnr@docs
+VignetteBuilder: knitr
+RoxygenNote: 6.1.1
+Roxygen: list(markdown = TRUE)
+Encoding: UTF-8

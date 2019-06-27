@@ -1,0 +1,17 @@
+^.*\.Rproj$
+^\.Rproj\.user$
+^LICENSE\.md$
+^Readme\.md$
+^README\.Rmd$
+^\.travis\.yml$
+^\.lintr$
+^doc$
+^Meta$
+^scripts/
+^man-roxygen/
+^docs$
+^_pkgdown\.yml$
+^pkgdown$
+^codecov\.yml$
+^README\.html$
+^logo.svg$
