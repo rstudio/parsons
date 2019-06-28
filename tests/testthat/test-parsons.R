@@ -19,5 +19,5 @@ test_that("Can create parsons", {
     input_id = "test-parsons"
   )
 
-  expect_is(z, "parsons")
+  expect_is(z, "parsons_problem")
 })

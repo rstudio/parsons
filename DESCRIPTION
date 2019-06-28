@@ -18,14 +18,16 @@ Imports:
     htmlwidgets,
     learnr (>= 0.9.2),
     shiny,
-    assertthat
+    assertthat,
+    utils,
+    rlang
 Suggests:
     knitr,
     testthat (>= 2.1.0),
     withr
 Remotes: 
-    rstudio/sortable
-    andrie/learnr@docs
+    rstudio/sortable@remove-parsons,
+    andrie/learnr@parsons
 VignetteBuilder: knitr
 RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)

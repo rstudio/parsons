@@ -1,5 +1,9 @@
-as.parsons <- function(x){
-  class(x) <- c("parsons", class(x))
+is.parsons_problem <- function(x) {
+  inherits(x, "parsons_problem")
+}
+
+as.parsons_problem <- function(x){
+  class(x) <- c("parsons_problem", class(x))
   x
 }
 
