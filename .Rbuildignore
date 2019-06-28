@@ -15,4 +15,3 @@
 ^codecov\.yml$
 ^README\.html$
 ^logo.svg$
-^inst/tutorials/parsons/rsconnect$
