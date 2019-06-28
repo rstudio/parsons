@@ -62,5 +62,5 @@ parsons_problem <- function(
     group_name = group_name,
     style = style
   )
-  as.parsons(z)
+  as.parsons_problem(z)
 }

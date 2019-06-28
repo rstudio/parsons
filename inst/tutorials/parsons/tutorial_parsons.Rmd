@@ -1,9 +1,12 @@
 ---
-title: "Parsons problems"
-date: "June 6th, 2019"
+title: Parsons problems
+author: Andrie de Vries
+date: "`r Sys.Date()`"
 output: learnr::tutorial
 runtime: shiny_prerendered
 ---
+
+
 
 ```{r setup, include=FALSE}
 library(learnr)
@@ -11,11 +14,12 @@ library(parsons)
 library(magrittr)
 ```
 
+
 ## Example
 
-Try this programming problem:
+Try this programming problem: 
 
-```{r iris}
+```{r iris, echo=FALSE}
 question_parsons(
   initial = c(
     "iris",
@@ -23,22 +27,24 @@ question_parsons(
     "summarize(...)",
     "print()"
   ),
-  answer(
+  pass_if(
     c(
       "iris",
       "mutate(...)",
       "summarize(...)"
-    ),
-    correct = TRUE
+    )
   ),
-  answer(
-    c(
-      "iris",
-      "mutate(...)",
-      "summarize(...)",
-      "print()"
-    ),
-    message = "You don't need print()"
+  fail_if(
+    ~length(.) < 2,
+    message = "Include at least two answers"
+  ),
+  fail_if(
+    function(x){"print()" %in% x},
+    message = "You should not include print() in your answer"
+  ),
+  fail_if(
+    ~{.[1] != "iris"},
+    message = "Your solution should start with 'iris'"
   )
 )
 ```

@@ -4,17 +4,17 @@
 \alias{question_parsons}
 \title{Parsons problem question for learnr tutorials (experimental).}
 \usage{
-question_parsons(initial, ..., type = c("parsons_q"),
-  correct = "Correct!", incorrect = "Incorrect",
-  try_again = incorrect, message = NULL, post_message = NULL,
-  loading = c("Loading: "), submit_button = "Give feedback",
-  try_again_button = "Try Again", allow_retry = TRUE,
-  random_answer_order = TRUE, options = sortable_options())
+question_parsons(initial, ..., correct = "Correct!",
+  incorrect = "Incorrect", try_again = incorrect, message = NULL,
+  post_message = NULL, loading = c("Loading: "),
+  submit_button = "Give feedback", try_again_button = "Try Again",
+  allow_retry = TRUE, random_answer_order = TRUE,
+  options = sortable_options())
 }
 \arguments{
-\item{...}{One or more answers.  Passed to \code{\link[learnr:question]{learnr::question()}}.}
+\item{initial}{Initial value of answer options. This must be a character vector.}
 
-\item{type}{Must be "parsons_q"}
+\item{...}{One or more answers.  Passed to \code{\link[learnr:question]{learnr::question()}}.}
 
 \item{correct}{Text to print for a correct answer (defaults to "Correct!")}
 
@@ -153,11 +153,31 @@ if (require(learnr, quietly = TRUE)) {
       "mutate(...)",
       "summarize(...)"
     ), correct = TRUE),
-    expectation(
+    fail_if(
       function(x){!"print()" \%in\% x},
       "You should not include print()"
     )
   )
 }
 
+if (require(learnr, quietly = TRUE)) {
+  # to be used within a learnr tutorial...
+  question_parsons(
+    initial = c(
+      "iris",
+      "mutate(...)",
+      "summarize(...)",
+      "print()"
+    ),
+    pass_if(c(
+      "iris",
+      "mutate(...)",
+      "summarize(...)"
+    )),
+    fail_if(
+      function(x){!"print()" \%in\% x},
+      "You should not include print()"
+    )
+  )
+}
 }

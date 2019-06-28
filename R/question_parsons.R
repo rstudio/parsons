@@ -1,12 +1,17 @@
+#' @importFrom utils modifyList
+NULL
+
 #' Parsons problem question for learnr tutorials (experimental).
 #'
 #' @template question_parsons_description
+#'
+#' @param initial Initial value of answer options. This must be a character vector.
 #'
 #' @param ... One or more answers.  Passed to [learnr::question()].
 #' @inheritParams learnr::question
 #' @inheritParams parsons
 #'
-#' @param type Must be "parsons_q"
+# @param type Must be "parsons_question"
 #' @param correct Text to print for a correct answer (defaults to "Correct!")
 #'
 #' @export
@@ -20,7 +25,7 @@
 question_parsons <- function(
   initial,
   ...,
-  type = c("parsons_q"),
+  # type = c("parsons_question"),
   correct = "Correct!",
   incorrect = "Incorrect",
   try_again = incorrect,
@@ -37,15 +42,16 @@ question_parsons <- function(
 ) {
   dots <- list(...)
   answers <- dots[vapply(dots, is.answer, FUN.VALUE = logical(1))]
-  expectations <- dots[vapply(dots, is.expectation, FUN.VALUE = logical(1))]
-  # browser()
+  pass <- dots[vapply(dots, is.expectation_pass, FUN.VALUE = logical(1))]
+  fail <- dots[vapply(dots, is.expectation_fail, FUN.VALUE = logical(1))]
+
   z <- do.call(
     learnr::question,
     append(
       answers,
       list(
         text = NULL,
-        type = "parsons_q",
+        type = "parsons_question",
         correct =  correct,
         incorrect =  incorrect,
         try_again = try_again,
@@ -58,7 +64,8 @@ question_parsons <- function(
         random_answer_order = random_answer_order,
         options = list(
           initial = initial,
-          expectations = expectations,
+          pass = pass,
+          fail = fail,
           sortable_options = options
         )
       )
@@ -69,7 +76,7 @@ question_parsons <- function(
 
 
 #' @export
-question_initialize_input.parsons_q <- function(question, answer_input, ...) {
+question_initialize_input.parsons_question <- function(question, answer_input, ...) {
 
   labels <- question$options$initial
   if (isTRUE(question$random_answer_order)) { # and we should randomize the order
@@ -92,8 +99,10 @@ question_initialize_input.parsons_q <- function(question, answer_input, ...) {
 
 }
 
+
+
 #' @export
-question_completed_input.parsons_q <- function(question, answer_input, ...) {
+question_completed_input.parsons_question <- function(question, answer_input, ...) {
   # TODO display correct values with X or √ compared to best match
   # TODO DON'T display correct values (listen to an option?)
 
@@ -103,28 +112,68 @@ question_completed_input.parsons_q <- function(question, answer_input, ...) {
     labels <- shuffle(labels)
   }
 
+  new_options <- modifyList(
+    question$options$sortable_options,
+    sortable_options(disabled = TRUE)
+  )
+
   parsons_problem(
     input_id = c(question$ids$question, question$ids$answer),
     initial = list(
       setdiff(labels, answer_input),
       answer_input
     ),
-    options = modifyList(
-      question$options$sortable_options,
-      sortable_options(disabled = TRUE)
-    ),
+    options = new_options,
     ...
   )
 }
 
+
+#' Disable input after student submitted answer.
+#'
+#' @inheritParams learnr::question_disable_input
+#'
+#' @param question Question object
+#' @param answer_input user input value
+#' @param ... not used
+#'
 #' @export
-question_is_valid.parsons_q <- function(question, answer_input, ...) {
+question_disable_input.parsons_question <- function(question, answer_input, ...) {
+  # TODO display correct values with X or √ compared to best match
+  # TODO DON'T display correct values (listen to an option?)
+
+  labels <- question$options$initial
+  if (isTRUE(question$random_answer_order)) { # and we should randomize the order
+    shuffle <- shiny::repeatable(sample, question$seed)
+    labels <- shuffle(labels)
+  }
+
+  new_options <- modifyList(
+    question$options$sortable_options,
+    sortable_options(disabled = TRUE)
+  )
+
+  parsons_problem(
+    input_id = c(question$ids$question, question$ids$answer),
+    initial = list(
+      setdiff(labels, answer_input),
+      answer_input
+    ),
+    options = new_options,
+    ...
+  )
+}
+
+
+
+#' @export
+question_is_valid.parsons_question <- function(question, answer_input, ...) {
   !is.null(answer_input)
 }
 
 
 #' @export
-question_is_correct.parsons_q <- function(question, answer_input, ...) {
+question_is_correct.parsons_question <- function(question, answer_input, ...) {
   # for each possible answer, check if it matches
   for (answer in question$answers) {
     if (identical(answer$option, answer_input)) {
@@ -132,6 +181,28 @@ question_is_correct.parsons_q <- function(question, answer_input, ...) {
       return(question_is_correct_value(answer$is_correct, answer$message))
     }
   }
+
+  # for each possible expectation, check if it matches
+  pass_expectations <- question$options$pass
+
+  for (exp in pass_expectations) {
+    if (eval_expectation(exp, answer_input)) {
+      # if it matches, return the correct-ness and its message
+      return(question_is_correct_value(TRUE, messages = exp$message))
+    }
+  }
+
+  # for each possible expectation, check if it matches
+  fail_expectations <- question$options$fail
+
+  for (exp in fail_expectations) {
+    if (eval_expectation(exp, answer_input)) {
+      # if it matches, return the correct-ness and its message
+      return(question_is_correct_value(FALSE, messages = exp$message))
+    }
+  }
+
+
   # no match found. not correct
   return(question_is_correct_value(FALSE, NULL))
 }

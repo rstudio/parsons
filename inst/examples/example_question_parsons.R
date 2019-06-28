@@ -36,10 +36,30 @@ if (require(learnr, quietly = TRUE)) {
       "mutate(...)",
       "summarize(...)"
     ), correct = TRUE),
-    expectation(
+    fail_if(
       function(x){!"print()" %in% x},
       "You should not include print()"
     )
   )
 }
 
+if (require(learnr, quietly = TRUE)) {
+  # to be used within a learnr tutorial...
+  question_parsons(
+    initial = c(
+      "iris",
+      "mutate(...)",
+      "summarize(...)",
+      "print()"
+    ),
+    pass_if(c(
+      "iris",
+      "mutate(...)",
+      "summarize(...)"
+    )),
+    fail_if(
+      function(x){!"print()" %in% x},
+      "You should not include print()"
+    )
+  )
+}
