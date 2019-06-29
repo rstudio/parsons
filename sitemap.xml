@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://rstudio.github.io/parsons/index.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/parsons/reference/css.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/parsons/reference/expectation_pass.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/parsons/reference/expectations.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/parsons/reference/parsons.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/parsons/reference/parsons_problem.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/parsons/reference/question_disable_input.parsons_question.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/parsons/reference/question_parsons.html</loc>
+  </url>
+</urlset>
