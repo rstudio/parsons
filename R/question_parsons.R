@@ -41,7 +41,7 @@ question_parsons <- function(
 
 ) {
   dots <- list(...)
-  answers <- dots[vapply(dots, is.answer, FUN.VALUE = logical(1))]
+  answers <- dots[vapply(dots, is_answer, FUN.VALUE = logical(1))]
   pass <- dots[vapply(dots, is.expectation_pass, FUN.VALUE = logical(1))]
   fail <- dots[vapply(dots, is.expectation_fail, FUN.VALUE = logical(1))]
 

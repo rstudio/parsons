@@ -1,4 +1,4 @@
-is.answer <- function(x){
+is_answer <- function(x){
   inherits(x, "tutorial_question_answer")
 }
 

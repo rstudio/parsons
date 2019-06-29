@@ -26,7 +26,7 @@ Suggests:
     testthat (>= 2.1.0),
     withr
 Remotes: 
-    rstudio/sortable@remove-parsons,
+    rstudio/sortable,
     andrie/learnr@parsons
 VignetteBuilder: knitr
 RoxygenNote: 6.1.1

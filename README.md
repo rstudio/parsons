@@ -47,10 +47,51 @@ provide the correct order.
 
 The `parsons()` function has experimental support for parsons problems.
 
-    #> Warning in file(con, "r"): file("") only supports open = "w+" and open =
-    #> "w+b": using the former
-    #> Warning in knitr::read_chunk(system.file("shiny-examples/parsons_app.R", :
-    #> code is empty
+``` r
+## Example shiny app with parsons problem
+
+library(shiny)
+library(parsons)
+
+ui <- fluidPage(
+  fluidRow(
+    column(
+      width = 12,
+      tags$h2("This shiny app contains a parsons problem."),
+
+      ## This is the parsons problem
+      parsons_problem(
+        header = "This is an example of a Parsons problem",
+        initial = c(
+          "iris",
+          "mutate(...)",
+          "summarize(...)",
+          "print()"
+        ),
+        input_id = "parsons_unique_id"
+      )
+
+    )
+  ),
+  fluidRow(
+    column(
+      width = 12,
+      tags$h2("You provided the answer"),
+      verbatimTextOutput("answer")
+    )
+  )
+)
+
+server <- function(input,output) {
+  output$answer <-
+    renderPrint(
+      input$parsons_unique_id # This matches the input_id of the parsons problem
+    )
+}
+
+
+shinyApp(ui, server)
+```
 
 <center>
 

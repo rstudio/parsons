@@ -1,4 +1,4 @@
-is.parsons_problem <- function(x) {
+is_parsons_problem <- function(x) {
   inherits(x, "parsons_problem")
 }
 

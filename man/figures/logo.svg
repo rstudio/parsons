@@ -398,9 +398,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="1.0809568"
-     inkscape:cx="280.69615"
-     inkscape:cy="244.46098"
+     inkscape:zoom="0.50112591"
+     inkscape:cx="81.168651"
+     inkscape:cy="230.81475"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -412,7 +412,9 @@
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
-     fit-margin-bottom="0" />
+     fit-margin-bottom="0"
+     gridtolerance="10"
+     objecttolerance="10" />
   <metadata
      id="metadata5">
     <rdf:RDF>
@@ -421,7 +423,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -432,7 +434,7 @@
      transform="translate(-36.586189,-70.436586)">
     <path
        sodipodi:type="star"
-       style="opacity:1;fill:#e3dbdb;fill-opacity:0.97979796;stroke:#782121;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       style="opacity:1;fill:#cfe3e7;fill-opacity:0.97979796;stroke:#006680;stroke-width:4;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
        id="path4573"
        sodipodi:sides="6"
        sodipodi:cx="102.62011"
@@ -447,6 +449,47 @@
        d="m 166.65403,183.65599 -64.03392,36.97 -64.033921,-36.97 0,-73.94 64.033921,-36.970003 64.03392,36.970003 z"
        inkscape:transform-center-x="3.0492663e-06"
        inkscape:transform-center-y="-6.6020762e-06" />
+    <g
+       id="g1061"
+       transform="matrix(-0.99972736,0.02334933,0.02334933,0.99972736,74.810887,2.0574954)"
+       style="fill:#b7c4c8">
+      <rect
+         clip-path="url(#clipPath1129)"
+         transform="matrix(0.97697083,0,0,-0.97697083,-280.48499,-4.9611551)"
+         style="opacity:1;vector-effect:none;fill:#b7c4c8;fill-opacity:1;stroke:#ffffff;stroke-width:0.12899154;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect1049"
+         width="24.719494"
+         height="24.719494"
+         x="201.2265"
+         y="-174.08112" />
+      <rect
+         clip-path="url(#clipPath1125)"
+         transform="matrix(0.97697083,0,0,-0.97697083,-280.48499,-4.9611551)"
+         y="-174.08112"
+         x="250.66541"
+         height="24.719494"
+         width="24.719494"
+         id="rect1051"
+         style="opacity:1;vector-effect:none;fill:#b7c4c8;fill-opacity:1;stroke:#ffffff;stroke-width:0.12899154;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+      <rect
+         clip-path="url(#clipPath1121)"
+         transform="matrix(0.97697083,0,0,-0.97697083,-280.48499,-4.9611551)"
+         style="opacity:1;vector-effect:none;fill:#b7c4c8;fill-opacity:1;stroke:#ffffff;stroke-width:0.12899154;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect1053"
+         width="24.719494"
+         height="24.719494"
+         x="225.946"
+         y="-174.08112" />
+      <rect
+         clip-path="url(#clipPath1105)"
+         style="opacity:1;vector-effect:none;fill:#b7c4c8;fill-opacity:1;stroke:#ffffff;stroke-width:0.12899154;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect1055"
+         width="24.719494"
+         height="24.719494"
+         x="275.38492"
+         y="-174.08112"
+         transform="matrix(0.97697083,0,0,-0.97697083,-280.48499,-4.9611551)" />
+    </g>
     <flowRoot
        xml:space="preserve"
        id="flowRoot835"
@@ -471,12 +514,12 @@
          y="166.25883"
          style="stroke-width:0.26458332" /></text>
     <g
-       id="g1341"
-       transform="translate(0,-1.1742366)">
+       id="g1076"
+       style="fill:#0088aa">
       <rect
          clip-path="url(#clipPath1129)"
-         transform="matrix(0.97697083,0,0,-0.97697083,-130.19761,-3.7869185)"
-         style="opacity:1;vector-effect:none;fill:#de8787;fill-opacity:1;stroke:#ffffff;stroke-width:0.12899154;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         transform="matrix(0.97697083,0,0,-0.97697083,-130.19761,-4.9611551)"
+         style="opacity:1;vector-effect:none;fill:#0088aa;fill-opacity:1;stroke:#ffffff;stroke-width:0.12899154;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
          id="rect4653"
          width="24.719494"
          height="24.719494"
@@ -484,28 +527,40 @@
          y="-174.08112" />
       <rect
          clip-path="url(#clipPath1125)"
-         transform="matrix(0.97697083,0,0,-0.97697083,-130.19761,-3.7869185)"
+         transform="matrix(0.97697083,0,0,-0.97697083,-130.19761,-4.9611551)"
          y="-174.08112"
          x="250.66541"
          height="24.719494"
          width="24.719494"
          id="rect4655"
-         style="opacity:1;vector-effect:none;fill:#de8787;fill-opacity:1;stroke:#ffffff;stroke-width:0.12899154;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+         style="opacity:1;vector-effect:none;fill:#0088aa;fill-opacity:1;stroke:#ffffff;stroke-width:0.12899154;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
       <rect
          clip-path="url(#clipPath1121)"
-         transform="matrix(0.97697083,0,0,-0.97697083,-130.19761,-3.7869185)"
-         style="opacity:1;vector-effect:none;fill:#de8787;fill-opacity:1;stroke:#ffffff;stroke-width:0.12899154;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         transform="matrix(0.97697083,0,0,-0.97697083,-130.19761,-4.9611551)"
+         style="opacity:1;vector-effect:none;fill:#0088aa;fill-opacity:1;stroke:#ffffff;stroke-width:0.12899154;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
          id="rect4657"
          width="24.719494"
          height="24.719494"
          x="225.946"
          y="-174.08112" />
+      <rect
+         clip-path="url(#clipPath1105)"
+         style="opacity:1;vector-effect:none;fill:#0088aa;fill-opacity:1;stroke:#ffffff;stroke-width:0.12899154;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect889"
+         width="24.719494"
+         height="24.719494"
+         x="275.38492"
+         y="-174.08112"
+         transform="matrix(0.97697083,0,0,-0.97697083,-130.19761,-4.9611551)" />
+    </g>
+    <g
+       id="g1108">
       <flowRoot
          clip-path="url(#clipPath1117)"
          xml:space="preserve"
          id="flowRoot4665"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:118.69242859px;line-height:1.25;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"
-         transform="matrix(0.16297277,0,0,0.16836741,-8.3970833,35.552004)"><flowRegion
+         transform="matrix(0.16297277,0,0,0.16836741,-8.3970833,34.377767)"><flowRegion
            id="flowRegion4661"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:118.69242859px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"><rect
              id="rect4659"
@@ -517,7 +572,7 @@
            id="flowPara4663"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:118.69242859px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1">s</flowPara></flowRoot>      <flowRoot
          clip-path="url(#clipPath1113)"
-         transform="matrix(0.16297277,0,0,0.16836741,39.08668,35.6645)"
+         transform="matrix(0.16297277,0,0,0.16836741,39.08668,34.490263)"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:118.69242859px;line-height:1.25;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"
          id="flowRoot4673"
          xml:space="preserve"><flowRegion
@@ -535,7 +590,7 @@
          xml:space="preserve"
          id="flowRoot4681"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:118.69242859px;line-height:1.25;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"
-         transform="matrix(0.16297277,0,0,0.16836741,15.868079,35.552004)"><flowRegion
+         transform="matrix(0.16297277,0,0,0.16836741,15.868079,34.377767)"><flowRegion
            id="flowRegion4677"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:118.69242859px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"><rect
              id="rect4675"
@@ -545,21 +600,12 @@
              y="627.98303"
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:118.69242859px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1" /></flowRegion><flowPara
            id="flowPara4679"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:118.69242859px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1">o</flowPara></flowRoot>      <rect
-         clip-path="url(#clipPath1105)"
-         style="opacity:1;vector-effect:none;fill:#de8787;fill-opacity:1;stroke:#ffffff;stroke-width:0.12899154;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-         id="rect889"
-         width="24.719494"
-         height="24.719494"
-         x="275.38492"
-         y="-174.08112"
-         transform="matrix(0.97697083,0,0,-0.97697083,-130.19761,-3.7869185)" />
-      <flowRoot
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:118.69242859px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1">o</flowPara></flowRoot>      <flowRoot
          clip-path="url(#clipPath1101)"
          xml:space="preserve"
          id="flowRoot905"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:118.69242859px;line-height:1.25;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"
-         transform="matrix(0.16297277,0,0,0.16836741,64.053619,35.6645)"><flowRegion
+         transform="matrix(0.16297277,0,0,0.16836741,64.053619,34.490263)"><flowRegion
            id="flowRegion901"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:118.69242859px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"><rect
              id="rect899"
@@ -569,39 +615,46 @@
              y="627.98303"
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:118.69242859px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1" /></flowRegion><flowPara
            id="flowPara903"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:118.69242859px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1">s</flowPara></flowRoot>      <rect
-         transform="matrix(0.97697083,0,0,0.97697083,-130.67587,20.384954)"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:118.69242859px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1">s</flowPara></flowRoot>    </g>
+    <g
+       id="g1070"
+       style="fill:#0088aa">
+      <rect
+         transform="matrix(0.97697083,0,0,0.97697083,-130.67587,19.210717)"
          clip-path="url(#clipPath1097)"
-         style="opacity:1;vector-effect:none;fill:#d35f5f;fill-opacity:1;stroke:#ffffff;stroke-width:0.12899154;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         style="opacity:1;vector-effect:none;fill:#0088aa;fill-opacity:1;stroke:#ffffff;stroke-width:0.12899154;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
          id="rect1019"
          width="24.719494"
          height="24.719494"
          x="176.99657"
          y="95.882095" />
       <rect
-         transform="matrix(0.97697083,0,0,0.97697083,-130.67587,20.384954)"
+         transform="matrix(0.97697083,0,0,0.97697083,-130.67587,19.210717)"
          clip-path="url(#clipPath1093)"
          y="95.882095"
          x="226.43552"
          height="24.719494"
          width="24.719494"
          id="rect1021"
-         style="opacity:1;vector-effect:none;fill:#d35f5f;fill-opacity:1;stroke:#ffffff;stroke-width:0.12899154;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+         style="opacity:1;vector-effect:none;fill:#0088aa;fill-opacity:1;stroke:#ffffff;stroke-width:0.12899154;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
       <rect
-         transform="matrix(0.97697083,0,0,0.97697083,-130.67587,20.384954)"
+         transform="matrix(0.97697083,0,0,0.97697083,-130.67587,19.210717)"
          clip-path="url(#clipPath1089)"
-         style="opacity:1;vector-effect:none;fill:#d35f5f;fill-opacity:1;stroke:#ffffff;stroke-width:0.12899154;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         style="opacity:1;vector-effect:none;fill:#0088aa;fill-opacity:1;stroke:#ffffff;stroke-width:0.12899154;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
          id="rect1023"
          width="24.719494"
          height="24.719494"
          x="201.71603"
          y="95.882095" />
+    </g>
+    <g
+       id="g1090">
       <flowRoot
          clip-path="url(#clipPath1085)"
          xml:space="preserve"
          id="flowRoot1031"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:118.69242859px;line-height:1.25;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"
-         transform="matrix(0.16297277,0,0,0.16836741,-32.547197,7.4757665)"><flowRegion
+         transform="matrix(0.16297277,0,0,0.16836741,-32.547197,6.3015299)"><flowRegion
            id="flowRegion1027"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:118.69242859px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"><rect
              id="rect1025"
@@ -613,7 +666,7 @@
            id="flowPara1029"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:118.69242859px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1">p</flowPara></flowRoot>      <flowRoot
          clip-path="url(#clipPath1081)"
-         transform="matrix(0.16297277,0,0,0.16836741,14.936566,7.4007715)"
+         transform="matrix(0.16297277,0,0,0.16836741,14.936566,6.2265349)"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:118.69242859px;line-height:1.25;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"
          id="flowRoot1039"
          xml:space="preserve"><flowRegion
@@ -631,7 +684,7 @@
          xml:space="preserve"
          id="flowRoot1047"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:118.69242859px;line-height:1.25;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"
-         transform="matrix(0.16297277,0,0,0.16836741,-8.2820353,7.4757665)"><flowRegion
+         transform="matrix(0.16297277,0,0,0.16836741,-8.2820353,6.3015299)"><flowRegion
            id="flowRegion1043"
            style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:118.69242859px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1"><rect
              id="rect1041"
@@ -641,38 +694,38 @@
              y="627.98303"
              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:118.69242859px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1" /></flowRegion><flowPara
            id="flowPara1045"
-           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:118.69242859px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1">a</flowPara></flowRoot>      <g
-         style="fill:#e9afaf"
-         transform="translate(0.03578668)"
-         id="g1181">
-        <rect
-           transform="matrix(0.97697083,0,0,0.97697083,-106.56149,76.537429)"
-           clip-path="url(#clipPath1097)"
-           style="opacity:1;vector-effect:none;fill:#e9afaf;fill-opacity:1;stroke:#ffffff;stroke-width:0.12899154;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-           id="rect1133"
-           width="24.719494"
-           height="24.719494"
-           x="176.99657"
-           y="95.882095" />
-        <rect
-           transform="matrix(0.97697083,0,0,0.97697083,-106.56149,76.537429)"
-           clip-path="url(#clipPath1093)"
-           y="95.882095"
-           x="226.43552"
-           height="24.719494"
-           width="24.719494"
-           id="rect1135"
-           style="opacity:1;vector-effect:none;fill:#e9afaf;fill-opacity:1;stroke:#ffffff;stroke-width:0.12899154;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
-        <rect
-           transform="matrix(0.97697083,0,0,0.97697083,-106.56149,76.537429)"
-           clip-path="url(#clipPath1089)"
-           style="opacity:1;vector-effect:none;fill:#e9afaf;fill-opacity:1;stroke:#ffffff;stroke-width:0.12899154;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-           id="rect1137"
-           width="24.719494"
-           height="24.719494"
-           x="201.71603"
-           y="95.882095" />
-      </g>
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:118.69242859px;font-family:'Segoe UI';-inkscape-font-specification:'Segoe UI';text-align:center;text-anchor:middle;fill:#ffffff;fill-opacity:1;stroke:none;stroke-opacity:1">a</flowPara></flowRoot>    </g>
+    <g
+       id="g1181"
+       transform="translate(0.03578668,-1.1742366)"
+       style="fill:#0088aa">
+      <rect
+         y="95.882095"
+         x="176.99657"
+         height="24.719494"
+         width="24.719494"
+         id="rect1133"
+         style="opacity:1;vector-effect:none;fill:#0088aa;fill-opacity:1;stroke:#ffffff;stroke-width:0.12899154;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         clip-path="url(#clipPath1097)"
+         transform="matrix(0.97697083,0,0,0.97697083,-106.56149,76.537429)" />
+      <rect
+         style="opacity:1;vector-effect:none;fill:#0088aa;fill-opacity:1;stroke:#ffffff;stroke-width:0.12899154;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         id="rect1135"
+         width="24.719494"
+         height="24.719494"
+         x="226.43552"
+         y="95.882095"
+         clip-path="url(#clipPath1093)"
+         transform="matrix(0.97697083,0,0,0.97697083,-106.56149,76.537429)" />
+      <rect
+         y="95.882095"
+         x="201.71603"
+         height="24.719494"
+         width="24.719494"
+         id="rect1137"
+         style="opacity:1;vector-effect:none;fill:#0088aa;fill-opacity:1;stroke:#ffffff;stroke-width:0.12899154;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+         clip-path="url(#clipPath1089)"
+         transform="matrix(0.97697083,0,0,0.97697083,-106.56149,76.537429)" />
     </g>
   </g>
 </svg>

@@ -1,4 +1,4 @@
-#' @importFrom sortable sortable_options is.sortable_options
+#' @importFrom sortable sortable_options is_sortable_options
 #' @importFrom sortable add_rank_list bucket_list
 #'
 #' @importFrom learnr question_initialize_input
@@ -50,7 +50,7 @@ parsons_problem <- function(
   style = css_parsons()
 ) {
   if (is.character(initial)) initial <- list(initial, NULL)
-  assert_that(is.sortable_options(options))
+  assert_that(is_sortable_options(options))
   if (missing(group_name) || is.null(group_name)) group_name <- increment_parsons_group()
 
   if (length(input_id) == 1) input_id <- list(paste0(input_id, "_1"), input_id)
