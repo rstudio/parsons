@@ -15,11 +15,107 @@ library(magrittr)
 ```
 
 
-## Example
+## Hallo world!
 
-Try this programming problem: 
+A Parsons problem gives the student some programming statements in random order.  The student then constructs an answer by dragging the statements into the correct order.
 
-```{r iris, echo=FALSE}
+Here is an example.  Drag the statements from the left to produce "Hallo World!".
+
+```{r hallo-world, echo=FALSE}
+question_parsons(
+  initial = c(
+    "Hallo",
+    "World",
+    "!"
+  ),
+  pass_if(
+    c(
+    "Hallo",
+    "World",
+    "!"
+    )
+  )
+)
+```
+
+
+## Constructing a parsons's problem
+
+To create a parsons problem in a `learnr` tutorial, use the `question_parson()` function.
+
+You must provide at minimum:
+
+* The `initial` set of values, as a character vector
+
+* A "correct" answer
+
+Note that, when using only this minimal specification, the only feedback the student will ever get is "Incorrect, try again".
+
+```{r explain-1}
+question_parsons(
+  initial = c(
+    "Hallo",
+    "World",
+    "!"
+  ),
+  answer(
+    c(
+    "Hallo",
+    "World",
+    "!"
+    ),
+    correct = TRUE
+  )
+)
+```
+
+
+## Using pass_if() and fail_if()
+
+An alternative way to specify the correct answer(s) is to supply a `pass_if()` statement.  Using `pass_if()` and `fail_if()` is a powerful way to provide feedback to your students.
+
+These `pass_if()` and `fail_if()` statements are evaluated in turn, until the first expectation evaluates to `TRUE`, and the `leanr` will provide the feedback in the `message`.
+
+You can specify `pass_if()` as well as `fail_if()` in any of the following ways:
+
+* A character vector, that must be matched exactly, or
+
+* A function in the tradition form `function(x) ...`, e.g. `function(x) length(x) < 3`
+
+* A function specified using the `rlang` tidy evaluation formula notation, e.g. `~length(.) < 3`
+
+
+This next example will give feedback if the length of the answer is 2 or fewer items.
+
+```{r explain-2}
+question_parsons(
+  initial = c(
+    "Hallo",
+    "World",
+    "!"
+  ),
+  pass_if(
+    c(
+    "Hallo",
+    "World",
+    "!"
+    )
+  ),
+  fail_if(
+    ~length(.) <= 2,
+    "Provide more answers"
+  )
+)
+```
+
+
+
+
+## A tidyverse example with multiple fail_if statements
+
+Create a statement that uses `iris` data, then does some mutation and finally creates a summary.
+
+```{r iris}
 question_parsons(
   initial = c(
     "iris",

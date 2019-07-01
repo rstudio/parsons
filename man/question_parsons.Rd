@@ -110,74 +110,8 @@ appended, and items are automatically indented:
 }
 
 \examples{
-## Example of a shiny app
+## Example of parsons problem inside a learn tutorial
 if (interactive()) {
-  app <- system.file("shiny-examples/parsons_app.R", package = "parsons")
-  shiny::runApp(app)
-}
-if (require(learnr, quietly = TRUE)) {
-  # to be used within a learnr tutorial...
-  question_parsons(
-    initial = c(
-      "iris",
-      "mutate(...)",
-      "summarize(...)",
-      "print()"
-    ),
-    answer(c(
-      "iris",
-      "mutate(...)",
-      "summarize(...)"
-    ), correct = TRUE),
-  answer(c(
-    "iris",
-    "mutate(...)",
-    "summarize(...)",
-    "print()"
-    ))
-  )
-}
-
-
-if (require(learnr, quietly = TRUE)) {
-  # to be used within a learnr tutorial...
-  question_parsons(
-    initial = c(
-      "iris",
-      "mutate(...)",
-      "summarize(...)",
-      "print()"
-    ),
-    answer(c(
-      "iris",
-      "mutate(...)",
-      "summarize(...)"
-    ), correct = TRUE),
-    fail_if(
-      function(x){!"print()" \%in\% x},
-      "You should not include print()"
-    )
-  )
-}
-
-if (require(learnr, quietly = TRUE)) {
-  # to be used within a learnr tutorial...
-  question_parsons(
-    initial = c(
-      "iris",
-      "mutate(...)",
-      "summarize(...)",
-      "print()"
-    ),
-    pass_if(c(
-      "iris",
-      "mutate(...)",
-      "summarize(...)"
-    )),
-    fail_if(
-      function(x){!"print()" \%in\% x},
-      "You should not include print()"
-    )
-  )
+  learnr::run_tutorial("parsons", package = "parsons")
 }
 }

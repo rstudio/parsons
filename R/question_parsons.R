@@ -15,12 +15,10 @@ NULL
 #' @param correct Text to print for a correct answer (defaults to "Correct!")
 #'
 #' @export
-#' @example inst/examples/example_question_parsons.R
 #' @examples
-#' ## Example of a shiny app
+#' ## Example of parsons problem inside a learn tutorial
 #' if (interactive()) {
-#'   app <- system.file("shiny-examples/parsons_app.R", package = "parsons")
-#'   shiny::runApp(app)
+#'   learnr::run_tutorial("parsons", package = "parsons")
 #' }
 question_parsons <- function(
   initial,
@@ -96,7 +94,6 @@ question_initialize_input.parsons_question <- function(question, answer_input, .
     ...
   )
   z
-
 }
 
 
@@ -138,30 +135,27 @@ question_completed_input.parsons_question <- function(question, answer_input, ..
 #' @param ... not used
 #'
 #' @export
-question_disable_input.parsons_question <- function(question, answer_input, ...) {
-  # TODO display correct values with X or √ compared to best match
-  # TODO DON'T display correct values (listen to an option?)
-
-  labels <- question$options$initial
-  if (isTRUE(question$random_answer_order)) { # and we should randomize the order
-    shuffle <- shiny::repeatable(sample, question$seed)
-    labels <- shuffle(labels)
-  }
-
-  new_options <- modifyList(
-    question$options$sortable_options,
-    sortable_options(disabled = TRUE)
-  )
-
-  parsons_problem(
-    input_id = c(question$ids$question, question$ids$answer),
-    initial = list(
-      setdiff(labels, answer_input),
-      answer_input
-    ),
-    options = new_options,
-    ...
-  )
+question_try_again_input.parsons_question <- function(question, answer_input, ...) {
+ # TODO display correct values with X or √ compared to best match
+ # TODO DON'T display correct values (listen to an option?)
+ labels <- question$options$initial
+ if (isTRUE(question$random_answer_order)) { # and we should randomize the order
+   shuffle <- shiny::repeatable(sample, question$seed)
+   labels <- shuffle(labels)
+ }
+ new_options <- modifyList(
+   question$options$sortable_options,
+   sortable_options(disabled = TRUE)
+ )
+ parsons_problem(
+   input_id = c(question$ids$question, question$ids$answer),
+   initial = list(
+     setdiff(labels, answer_input),
+     answer_input
+   ),
+   options = new_options,
+   ...
+ )
 }
 
 
