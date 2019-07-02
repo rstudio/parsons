@@ -1,8 +1,12 @@
 .Rproj.user
 .Rhistory
 .RData
-docs/
 Meta
 README.html
-doc
-inst/tutorials/parsons/rsconnect
+doc/
+docs/
+inst/doc
+vignettes/*.R
+vignettes/*.html
+inst/tutorials/*.html
+
