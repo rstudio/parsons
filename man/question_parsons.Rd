@@ -110,7 +110,7 @@ appended, and items are automatically indented:
 }
 
 \examples{
-## Example of parsons problem inside a learn tutorial
+## Example of parsons problem inside a learnr tutorial
 if (interactive()) {
   learnr::run_tutorial("parsons", package = "parsons")
 }

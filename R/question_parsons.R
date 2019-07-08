@@ -1,4 +1,11 @@
 #' @importFrom utils modifyList
+#'
+#' @importFrom learnr question_initialize_ui
+#' @importFrom learnr question_completed_ui
+#' @importFrom learnr question_try_again_ui
+#' @importFrom learnr question_is_valid
+#' @importFrom learnr question_is_correct
+#' @importFrom learnr question_is_correct_value
 NULL
 
 #' Parsons problem question for learnr tutorials (experimental).
@@ -16,7 +23,7 @@ NULL
 #'
 #' @export
 #' @examples
-#' ## Example of parsons problem inside a learn tutorial
+#' ## Example of parsons problem inside a learnr tutorial
 #' if (interactive()) {
 #'   learnr::run_tutorial("parsons", package = "parsons")
 #' }
@@ -38,7 +45,7 @@ question_parsons <- function(
 
 
 ) {
-  dots <- list(...)
+  dots <- rlang::list2(...)
   answers <- dots[vapply(dots, is_answer, FUN.VALUE = logical(1))]
   pass <- dots[vapply(dots, is.expectation_pass, FUN.VALUE = logical(1))]
   fail <- dots[vapply(dots, is.expectation_fail, FUN.VALUE = logical(1))]
@@ -74,7 +81,7 @@ question_parsons <- function(
 
 
 #' @export
-question_initialize_input.parsons_question <- function(question, answer_input, ...) {
+question_initialize_ui.parsons_question <- function(question, answer_input, ...) {
 
   labels <- question$options$initial
   if (isTRUE(question$random_answer_order)) { # and we should randomize the order
@@ -99,7 +106,7 @@ question_initialize_input.parsons_question <- function(question, answer_input, .
 
 
 #' @export
-question_completed_input.parsons_question <- function(question, answer_input, ...) {
+question_completed_ui.parsons_question <- function(question, answer_input, ...) {
   # TODO display correct values with X or √ compared to best match
   # TODO DON'T display correct values (listen to an option?)
 
@@ -128,14 +135,14 @@ question_completed_input.parsons_question <- function(question, answer_input, ..
 
 #' Disable input after student submitted answer.
 #'
-#' @inheritParams learnr::question_disable_input
+#' @inheritParams learnr::question_disable_ui
 #'
 #' @param question Question object
 #' @param answer_input user input value
 #' @param ... not used
 #'
 #' @export
-question_try_again_input.parsons_question <- function(question, answer_input, ...) {
+question_try_again_ui.parsons_question <- function(question, answer_input, ...) {
  # TODO display correct values with X or √ compared to best match
  # TODO DON'T display correct values (listen to an option?)
  labels <- question$options$initial

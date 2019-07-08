@@ -11,11 +11,11 @@ test_that( "init display validates", {
   expect_is(question, "parsons_question")
 
   expect_silent({
-    question_initialize_input(question, "ignored")
+    question_initialize_ui(question, "ignored")
   })
 
   expect_silent({
-    question_completed_input(question, LETTERS[5:1])
+    question_completed_ui(question, LETTERS[5:1])
   })
 
   expect_true(

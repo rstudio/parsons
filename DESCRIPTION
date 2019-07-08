@@ -24,10 +24,11 @@ Imports:
 Suggests:
     knitr,
     testthat (>= 2.1.0),
-    withr
+    withr,
+    rmarkdown
 Remotes: 
-    rstudio/sortable,
-    rstudio/learnr
+    rstudio/sortable@question_api_change,
+    rstudio/learnr@question_api_change
 VignetteBuilder: knitr
 RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)

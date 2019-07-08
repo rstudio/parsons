@@ -1,11 +1,5 @@
 #' @importFrom sortable sortable_options is_sortable_options
 #' @importFrom sortable add_rank_list bucket_list
-#'
-#' @importFrom learnr question_initialize_input
-#' @importFrom learnr question_completed_input
-#' @importFrom learnr question_is_valid
-#' @importFrom learnr question_is_correct
-#' @importFrom learnr question_is_correct_value
 NULL
 
 
