@@ -53,16 +53,38 @@ A Parsons problem is a specific type of question, useful for teaching programmin
 
 The `parsons()` function has experimental support for parsons problems.
 
+<center>
+<img src="man/figures/parsons_app.gif" style = 'width:400px;'></img>
+</center>
 
-```{r echo=FALSE, cache=FALSE}
-knitr::read_chunk(
-  system.file("shiny-examples/parsons_app.R", package = "parsons")
+You can add a parsons problem to a `learnr` tutorial with the `question_parsons()` function:
+
+```R
+question_parsons(
+  initial = c(
+    "iris",
+    "mutate(...)",
+    "summarize(...)",
+    "print()"
+  ),
+  pass_if(
+    c(
+      "iris",
+      "mutate(...)",
+      "summarize(...)"
+    )
+  ),
+  fail_if(
+    ~length(.) < 2,
+    message = "Include at least two answers"
+  ),
+  fail_if(
+    function(x){"print()" %in% x},
+    message = "You should not include print() in your answer"
+  ),
+  fail_if(
+    ~{.[1] != "iris"},
+    message = "Your solution should start with 'iris'"
+  )
 )
 ```
-
-```{r parsons-app, eval=FALSE}
-```
-
-<center>
-<img src="man/figures/parsons_app.gif" style = 'width:600px;'></img>
-</center>

@@ -118,14 +118,14 @@ $(document).ready(function () {
 
 <div class="topics">
 
-<div id="section-hallo-world" class="section level2">
-<h2>Hallo world!</h2>
+<div id="section-hello-world" class="section level2">
+<h2>Hello world!</h2>
 <p>A Parsons problem gives the student some programming statements in random order. The student then constructs an answer by dragging the statements into the correct order.</p>
-<p>Here is an example. Drag the statements from the left to produce “Hallo World!”.</p>
-<div data-label="hallo-world" class="tutorial-question">
-<div id="hallo-world-answer_container" class="shiny-html-output"></div>
-<div id="hallo-world-message_container" class="shiny-html-output"></div>
-<div id="hallo-world-action_button_container" class="shiny-html-output"></div>
+<p>Here is an example. Drag the statements from the top panel to the bottom panel to produce “Hello World!”.</p>
+<div data-label="Hello-world" class="tutorial-question">
+<div id="Hello-world-answer_container" class="shiny-html-output"></div>
+<div id="Hello-world-message_container" class="shiny-html-output"></div>
+<div id="Hello-world-action_button_container" class="shiny-html-output"></div>
 </div>
 </div>
 <div id="section-constructing-a-parsonss-problem" class="section level2">
@@ -139,13 +139,13 @@ $(document).ready(function () {
 <p>Note that, when using only this minimal specification, the only feedback the student will ever get is “Incorrect, try again”.</p>
 <pre class="r"><code>question_parsons(
   initial = c(
-    &quot;Hallo&quot;,
+    &quot;Hello&quot;,
     &quot;World&quot;,
     &quot;!&quot;
   ),
   answer(
     c(
-    &quot;Hallo&quot;,
+    &quot;Hello&quot;,
     &quot;World&quot;,
     &quot;!&quot;
     ),
@@ -158,8 +158,8 @@ $(document).ready(function () {
 <div id="explain-1-action_button_container" class="shiny-html-output"></div>
 </div>
 </div>
-<div id="section-using-pass_if-and-fail_if" class="section level2">
-<h2>Using pass_if() and fail_if()</h2>
+<div id="section-using-pass-and-fail-conditions" class="section level2">
+<h2>Using pass and fail conditions</h2>
 <p>An alternative way to specify the correct answer(s) is to supply a <code>pass_if()</code> statement. Using <code>pass_if()</code> and <code>fail_if()</code> is a powerful way to provide feedback to your students.</p>
 <p>These <code>pass_if()</code> and <code>fail_if()</code> statements are evaluated in turn, until the first expectation evaluates to <code>TRUE</code>, and the <code>leanr</code> will provide the feedback in the <code>message</code>.</p>
 <p>You can specify <code>pass_if()</code> as well as <code>fail_if()</code> in any of the following ways:</p>
@@ -171,13 +171,13 @@ $(document).ready(function () {
 <p>This next example will give feedback if the length of the answer is 2 or fewer items.</p>
 <pre class="r"><code>question_parsons(
   initial = c(
-    &quot;Hallo&quot;,
+    &quot;Hello&quot;,
     &quot;World&quot;,
     &quot;!&quot;
   ),
   pass_if(
     c(
-    &quot;Hallo&quot;,
+    &quot;Hello&quot;,
     &quot;World&quot;,
     &quot;!&quot;
     )
@@ -193,8 +193,8 @@ $(document).ready(function () {
 <div id="explain-2-action_button_container" class="shiny-html-output"></div>
 </div>
 </div>
-<div id="section-a-tidyverse-example-with-multiple-fail_if-statements" class="section level2">
-<h2>A tidyverse example with multiple fail_if statements</h2>
+<div id="section-using-multiple-conditions" class="section level2">
+<h2>Using multiple conditions</h2>
 <p>Create a statement that uses <code>iris</code> data, then does some mutation and finally creates a summary.</p>
 <pre class="r"><code>question_parsons(
   initial = c(
@@ -240,19 +240,19 @@ learnr:::register_http_handlers(session, metadata = NULL)
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "parsons_question", label = "hallo-world",     question = NULL, answers = list(structure(list(id = "lnr_ans_a04fe43",         option = c("Hallo", "World", "!"), value = c("Hallo",         "World", "!"), label = structure("Hallo\nWorld\n!", html = TRUE, class = c("html",         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer",     "tutorial_quiz_answer"))), button_labels = list(submit = structure("Give feedback", html = TRUE, class = c("html",     "character")), try_again = structure("Try Again", html = TRUE, class = c("html",     "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html",     "character")), try_again = structure("Incorrect", html = TRUE, class = c("html",     "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html",     "character")), message = NULL, post_message = NULL), ids = list(        answer = "hallo-world-answer", question = "hallo-world"),     loading = structure("Loading: ", html = TRUE, class = c("html",     "character")), random_answer_order = TRUE, allow_retry = TRUE,     seed = 1886834702.62137, options = list(initial = c("Hallo",     "World", "!"), pass = list(), fail = list(), sortable_options = structure(list(), class = "sortable_options"))), class = c("parsons_question", "tutorial_question")))
+learnr:::question_prerendered_chunk(structure(list(type = "parsons_question", label = "Hello-world",     question = NULL, answers = list(structure(list(id = "lnr_ans_56138",         option = c("Hello", "World", "!"), value = c("Hello",         "World", "!"), label = structure("Hello\nWorld\n!", html = TRUE, class = c("html",         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer",     "tutorial_quiz_answer"))), button_labels = list(submit = structure("Give feedback", html = TRUE, class = c("html",     "character")), try_again = structure("Try Again", html = TRUE, class = c("html",     "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html",     "character")), try_again = structure("Incorrect", html = TRUE, class = c("html",     "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html",     "character")), message = NULL, post_message = NULL), ids = list(        answer = "Hello-world-answer", question = "Hello-world"),     loading = structure("Loading: ", html = TRUE, class = c("html",     "character")), random_answer_order = TRUE, allow_retry = TRUE,     seed = 161074557.924994, options = list(initial = c("Hello",     "World", "!"), pass = list(), fail = list(), sortable_options = structure(list(), class = "sortable_options"))), class = c("parsons_question", "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "parsons_question", label = "explain-1",     question = NULL, answers = list(structure(list(id = "lnr_ans_2efd0c8",         option = c("Hallo", "World", "!"), value = c("Hallo",         "World", "!"), label = structure("Hallo\nWorld\n!", html = TRUE, class = c("html",         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer",     "tutorial_quiz_answer"))), button_labels = list(submit = structure("Give feedback", html = TRUE, class = c("html",     "character")), try_again = structure("Try Again", html = TRUE, class = c("html",     "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html",     "character")), try_again = structure("Incorrect", html = TRUE, class = c("html",     "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html",     "character")), message = NULL, post_message = NULL), ids = list(        answer = "explain-1-answer", question = "explain-1"),     loading = structure("Loading: ", html = TRUE, class = c("html",     "character")), random_answer_order = TRUE, allow_retry = TRUE,     seed = 1616798919.24712, options = list(initial = c("Hallo",     "World", "!"), pass = list(), fail = list(), sortable_options = structure(list(), class = "sortable_options"))), class = c("parsons_question", "tutorial_question")))
+learnr:::question_prerendered_chunk(structure(list(type = "parsons_question", label = "explain-1",     question = NULL, answers = list(structure(list(id = "lnr_ans_d04b314",         option = c("Hello", "World", "!"), value = c("Hello",         "World", "!"), label = structure("Hello\nWorld\n!", html = TRUE, class = c("html",         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer",     "tutorial_quiz_answer"))), button_labels = list(submit = structure("Give feedback", html = TRUE, class = c("html",     "character")), try_again = structure("Try Again", html = TRUE, class = c("html",     "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html",     "character")), try_again = structure("Incorrect", html = TRUE, class = c("html",     "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html",     "character")), message = NULL, post_message = NULL), ids = list(        answer = "explain-1-answer", question = "explain-1"),     loading = structure("Loading: ", html = TRUE, class = c("html",     "character")), random_answer_order = TRUE, allow_retry = TRUE,     seed = 1675825586.71963, options = list(initial = c("Hello",     "World", "!"), pass = list(), fail = list(), sortable_options = structure(list(), class = "sortable_options"))), class = c("parsons_question", "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "parsons_question", label = "explain-2",     question = NULL, answers = list(structure(list(id = "lnr_ans_8cf9424",         option = c("Hallo", "World", "!"), value = c("Hallo",         "World", "!"), label = structure("Hallo\nWorld\n!", html = TRUE, class = c("html",         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer",     "tutorial_quiz_answer"))), button_labels = list(submit = structure("Give feedback", html = TRUE, class = c("html",     "character")), try_again = structure("Try Again", html = TRUE, class = c("html",     "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html",     "character")), try_again = structure("Incorrect", html = TRUE, class = c("html",     "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html",     "character")), message = NULL, post_message = NULL), ids = list(        answer = "explain-2-answer", question = "explain-2"),     loading = structure("Loading: ", html = TRUE, class = c("html",     "character")), random_answer_order = TRUE, allow_retry = TRUE,     seed = 40087700.9813327, options = list(initial = c("Hallo",     "World", "!"), pass = list(), fail = list(structure(list(        fun = structure(function (..., .x = ..1, .y = ..2, . = ..1)         length(.) <= 2, class = c("rlang_lambda_function", "function"        )), message = "Provide more answers"), class = c("parsons_expectation_fail",     "list"))), sortable_options = structure(list(), class = "sortable_options"))), class = c("parsons_question", "tutorial_question")))
+learnr:::question_prerendered_chunk(structure(list(type = "parsons_question", label = "explain-2",     question = NULL, answers = list(structure(list(id = "lnr_ans_4729ade",         option = c("Hello", "World", "!"), value = c("Hello",         "World", "!"), label = structure("Hello\nWorld\n!", html = TRUE, class = c("html",         "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer",     "tutorial_quiz_answer"))), button_labels = list(submit = structure("Give feedback", html = TRUE, class = c("html",     "character")), try_again = structure("Try Again", html = TRUE, class = c("html",     "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html",     "character")), try_again = structure("Incorrect", html = TRUE, class = c("html",     "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html",     "character")), message = NULL, post_message = NULL), ids = list(        answer = "explain-2-answer", question = "explain-2"),     loading = structure("Loading: ", html = TRUE, class = c("html",     "character")), random_answer_order = TRUE, allow_retry = TRUE,     seed = 951888853.556742, options = list(initial = c("Hello",     "World", "!"), pass = list(), fail = list(structure(list(        fun = structure(function (..., .x = ..1, .y = ..2, . = ..1)         length(.) <= 2, class = c("rlang_lambda_function", "function"        )), message = "Provide more answers"), class = c("parsons_expectation_fail",     "list"))), sortable_options = structure(list(), class = "sortable_options"))), class = c("parsons_question", "tutorial_question")))
 </script>
  
 <script type="application/shiny-prerendered" data-context="server">
-learnr:::question_prerendered_chunk(structure(list(type = "parsons_question", label = "iris", question = NULL,     answers = list(structure(list(id = "lnr_ans_71aa6fe", option = c("iris",     "mutate(...)", "summarize(...)"), value = c("iris", "mutate(...)",     "summarize(...)"), label = structure("iris\nmutate(...)\nsummarize(...)", html = TRUE, class = c("html",     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer",     "tutorial_quiz_answer"))), button_labels = list(submit = structure("Give feedback", html = TRUE, class = c("html",     "character")), try_again = structure("Try Again", html = TRUE, class = c("html",     "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html",     "character")), try_again = structure("Incorrect", html = TRUE, class = c("html",     "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html",     "character")), message = NULL, post_message = NULL), ids = list(        answer = "iris-answer", question = "iris"), loading = structure("Loading: ", html = TRUE, class = c("html",     "character")), random_answer_order = TRUE, allow_retry = TRUE,     seed = 517100511.759206, options = list(initial = c("iris",     "mutate(...)", "summarize(...)", "print()"), pass = list(),         fail = list(structure(list(fun = structure(function (...,             .x = ..1, .y = ..2, . = ..1)         length(.) < 2, class = c("rlang_lambda_function", "function"        )), message = "Include at least two answers"), class = c("parsons_expectation_fail",         "list")), structure(list(fun = function (x)         {            "print()" %in% x        }, message = "You should not include print() in your answer"), class = c("parsons_expectation_fail",         "list")), structure(list(fun = structure(function (...,             .x = ..1, .y = ..2, . = ..1)         {            .[1] != "iris"        }, class = c("rlang_lambda_function", "function")), message = "Your solution should start with 'iris'"), class = c("parsons_expectation_fail",         "list"))), sortable_options = structure(list(), class = "sortable_options"))), class = c("parsons_question", "tutorial_question")))
+learnr:::question_prerendered_chunk(structure(list(type = "parsons_question", label = "iris", question = NULL,     answers = list(structure(list(id = "lnr_ans_d82c5cb", option = c("iris",     "mutate(...)", "summarize(...)"), value = c("iris", "mutate(...)",     "summarize(...)"), label = structure("iris\nmutate(...)\nsummarize(...)", html = TRUE, class = c("html",     "character")), correct = TRUE, message = NULL), class = c("tutorial_question_answer",     "tutorial_quiz_answer"))), button_labels = list(submit = structure("Give feedback", html = TRUE, class = c("html",     "character")), try_again = structure("Try Again", html = TRUE, class = c("html",     "character"))), messages = list(correct = structure("Correct!", html = TRUE, class = c("html",     "character")), try_again = structure("Incorrect", html = TRUE, class = c("html",     "character")), incorrect = structure("Incorrect", html = TRUE, class = c("html",     "character")), message = NULL, post_message = NULL), ids = list(        answer = "iris-answer", question = "iris"), loading = structure("Loading: ", html = TRUE, class = c("html",     "character")), random_answer_order = TRUE, allow_retry = TRUE,     seed = 799846120.627543, options = list(initial = c("iris",     "mutate(...)", "summarize(...)", "print()"), pass = list(),         fail = list(structure(list(fun = structure(function (...,             .x = ..1, .y = ..2, . = ..1)         length(.) < 2, class = c("rlang_lambda_function", "function"        )), message = "Include at least two answers"), class = c("parsons_expectation_fail",         "list")), structure(list(fun = function (x)         {            "print()" %in% x        }, message = "You should not include print() in your answer"), class = c("parsons_expectation_fail",         "list")), structure(list(fun = structure(function (...,             .x = ..1, .y = ..2, . = ..1)         {            .[1] != "iris"        }, class = c("rlang_lambda_function", "function")), message = "Your solution should start with 'iris'"), class = c("parsons_expectation_fail",         "list"))), sortable_options = structure(list(), class = "sortable_options"))), class = c("parsons_question", "tutorial_question")))
 </script>
  <!--html_preserve-->
 <script type="application/shiny-prerendered" data-context="dependencies">
