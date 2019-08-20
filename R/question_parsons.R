@@ -74,7 +74,7 @@ question_parsons <- function(
 
 
 #' @export
-question_initialize_input.parsons_question <- function(question, answer_input, ...) {
+question_ui_initialize.parsons_question <- function(question, answer_input, ...) {
 
   labels <- question$options$initial
   if (isTRUE(question$random_answer_order)) { # and we should randomize the order
@@ -99,7 +99,7 @@ question_initialize_input.parsons_question <- function(question, answer_input, .
 
 
 #' @export
-question_completed_input.parsons_question <- function(question, answer_input, ...) {
+question_ui_completed.parsons_question <- function(question, answer_input, ...) {
   # TODO display correct values with X or √ compared to best match
   # TODO DON'T display correct values (listen to an option?)
 
@@ -114,14 +114,16 @@ question_completed_input.parsons_question <- function(question, answer_input, ..
     sortable_options(disabled = TRUE)
   )
 
-  parsons_problem(
-    input_id = c(question$ids$question, question$ids$answer),
-    initial = list(
-      setdiff(labels, answer_input),
-      answer_input
-    ),
-    options = new_options,
-    ...
+  disable_all_tags(
+    parsons_problem(
+      input_id = c(question$ids$question, question$ids$answer),
+      initial = list(
+        setdiff(labels, answer_input),
+        answer_input
+      ),
+      options = new_options,
+      ...
+    )
   )
 }
 
@@ -135,44 +137,41 @@ question_completed_input.parsons_question <- function(question, answer_input, ..
 #' @param ... not used
 #'
 #' @export
-question_try_again_input.parsons_question <- function(question, answer_input, ...) {
- # TODO display correct values with X or √ compared to best match
- # TODO DON'T display correct values (listen to an option?)
- labels <- question$options$initial
- if (isTRUE(question$random_answer_order)) { # and we should randomize the order
-   shuffle <- shiny::repeatable(sample, question$seed)
-   labels <- shuffle(labels)
- }
- new_options <- modifyList(
-   question$options$sortable_options,
-   sortable_options(disabled = TRUE)
- )
- parsons_problem(
-   input_id = c(question$ids$question, question$ids$answer),
-   initial = list(
-     setdiff(labels, answer_input),
-     answer_input
-   ),
-   options = new_options,
-   ...
- )
+question_ui_try_again.parsons_question <- function(question, answer_input, ...) {
+  # TODO display correct values with X or √ compared to best match
+  # TODO DON'T display correct values (listen to an option?)
+  labels <- question$options$initial
+  if (isTRUE(question$random_answer_order)) { # and we should randomize the order
+    shuffle <- shiny::repeatable(sample, question$seed)
+    labels <- shuffle(labels)
+  }
+  new_options <- modifyList(
+    question$options$sortable_options,
+    sortable_options(disabled = TRUE)
+  )
+
+  disable_all_tags(
+    parsons_problem(
+      input_id = c(question$ids$question, question$ids$answer),
+      initial = list(
+        setdiff(labels, answer_input),
+        answer_input
+      ),
+      options = new_options,
+      ...
+    )
+  )
 }
 
 
-
-#' @export
-question_is_valid.parsons_question <- function(question, answer_input, ...) {
-  !is.null(answer_input)
-}
-
-
+#' @inheritParams learnr::question_disable_input
 #' @export
 question_is_correct.parsons_question <- function(question, answer_input, ...) {
   # for each possible answer, check if it matches
   for (answer in question$answers) {
     if (identical(answer$option, answer_input)) {
       # if it matches, return the correct-ness and its message
-      return(question_is_correct_value(answer$is_correct, answer$message))
+      return(mark_as(answer$correct, answer$message))
     }
   }
 
@@ -182,7 +181,7 @@ question_is_correct.parsons_question <- function(question, answer_input, ...) {
   for (exp in pass_expectations) {
     if (eval_expectation(exp, answer_input)) {
       # if it matches, return the correct-ness and its message
-      return(question_is_correct_value(TRUE, messages = exp$message))
+      return(mark_as(TRUE, messages = exp$message))
     }
   }
 
@@ -192,11 +191,11 @@ question_is_correct.parsons_question <- function(question, answer_input, ...) {
   for (exp in fail_expectations) {
     if (eval_expectation(exp, answer_input)) {
       # if it matches, return the correct-ness and its message
-      return(question_is_correct_value(FALSE, messages = exp$message))
+      return(mark_as(FALSE, messages = exp$message))
     }
   }
 
 
   # no match found. not correct
-  return(question_is_correct_value(FALSE, NULL))
+  mark_as(FALSE, NULL)
 }

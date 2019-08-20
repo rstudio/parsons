@@ -42,9 +42,7 @@ message alongside the \code{message} message value.}
 
 \item{random_answer_order}{Display answers in a random order.}
 
-\item{options}{Extra options to be stored in the question object.
-This is useful when using custom question types.
-See sortable::sortable_question for an example question implementation that uses the \code{options} parameter.}
+\item{options}{Extra options to be stored in the question object.}
 }
 \description{
 Add Parsons Problem tasks to your \code{learnr} tutorials.  The

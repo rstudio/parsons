@@ -8,18 +8,19 @@ ui <- fluidPage(
   fluidRow(
     column(
       width = 12,
-      tags$h2("This shiny app contains a parsons problem."),
+      tags$h2("Question"),
 
       ## This is the parsons problem
       parsons_problem(
         header = "This is an example of a Parsons problem",
+        orientation = "vertical",
         initial = c(
           "iris",
           "mutate(...)",
           "summarize(...)",
           "print()"
         ),
-        input_id = "parsons_unique_id"
+        group_name = "parsons_unique_id"
       )
 
     )
@@ -27,7 +28,7 @@ ui <- fluidPage(
   fluidRow(
     column(
       width = 12,
-      tags$h2("You provided the answer"),
+      tags$h2("Result"),
       verbatimTextOutput("answer")
     )
   )
@@ -39,6 +40,5 @@ server <- function(input,output) {
       input$parsons_unique_id # This matches the input_id of the parsons problem
     )
 }
-
 
 shinyApp(ui, server)

@@ -7,7 +7,7 @@
 \alias{parsons-package}
 \title{parsons: Create Parsons Programming Problems in 'learnr` Tutorials}
 \description{
-Create Parsons Programming Problems in 'learnr` Tutorials.
+Create Parsons Programming Problems in 'learnr' Tutorials.
 }
 \seealso{
 Useful links:

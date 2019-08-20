@@ -6,7 +6,8 @@
 \usage{
 parsons_problem(initial, text = c("Drag from here",
   "Construct your solution here"), header = NULL, input_id, group_name,
-  options = sortable_options(), style = css_parsons())
+  options = sortable_options(), orientation = c("vertical",
+  "horizontal"))
 }
 \arguments{
 \item{initial}{Vector with initial values for problem (to appear in left
@@ -20,12 +21,13 @@ encoded as an HTML \code{<p>} tag, so not strictly speaking a header.)}
 \item{input_id}{Character vector of \code{input_id} to pass (individually) to
 \code{\link[=rank_list]{rank_list()}}.}
 
-\item{group_name}{Passed to \code{sortable.js} as the group name}
+\item{group_name}{Passed to \code{SortableJS} as the group name. Also the input
+value set in Shiny. (\code{input[[group_name]]})}
 
 \item{options}{Options to be supplied to \link{sortable_js} object. See \link{sortable_options} for more details}
 
-\item{style}{A css stylesheet, provided as a character string. See also
-\code{\link[=css_parsons]{css_parsons()}}}
+\item{orientation}{Either \code{horizontal} or \code{vertical}, and specifies the
+layout of the components on the page.}
 }
 \description{
 This function implements the parsons problem, as exposed by
