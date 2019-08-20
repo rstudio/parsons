@@ -15,22 +15,22 @@ library(magrittr)
 ```
 
 
-## Hallo world!
+## Hello world!
 
 A Parsons problem gives the student some programming statements in random order.  The student then constructs an answer by dragging the statements into the correct order.
 
-Here is an example.  Drag the statements from the left to produce "Hallo World!".
+Here is an example.  Drag the statements from the top panel to the bottom panel to produce "Hello World!".
 
-```{r hallo-world, echo=FALSE}
+```{r Hello-world, echo=FALSE}
 question_parsons(
   initial = c(
-    "Hallo",
+    "Hello",
     "World",
     "!"
   ),
   pass_if(
     c(
-    "Hallo",
+    "Hello",
     "World",
     "!"
     )
@@ -54,13 +54,13 @@ Note that, when using only this minimal specification, the only feedback the stu
 ```{r explain-1}
 question_parsons(
   initial = c(
-    "Hallo",
+    "Hello",
     "World",
     "!"
   ),
   answer(
     c(
-    "Hallo",
+    "Hello",
     "World",
     "!"
     ),
@@ -70,7 +70,7 @@ question_parsons(
 ```
 
 
-## Using pass_if() and fail_if()
+## Using pass and fail conditions
 
 An alternative way to specify the correct answer(s) is to supply a `pass_if()` statement.  Using `pass_if()` and `fail_if()` is a powerful way to provide feedback to your students.
 
@@ -90,13 +90,13 @@ This next example will give feedback if the length of the answer is 2 or fewer i
 ```{r explain-2}
 question_parsons(
   initial = c(
-    "Hallo",
+    "Hello",
     "World",
     "!"
   ),
   pass_if(
     c(
-    "Hallo",
+    "Hello",
     "World",
     "!"
     )
@@ -111,7 +111,7 @@ question_parsons(
 
 
 
-## A tidyverse example with multiple fail_if statements
+## Using multiple conditions
 
 Create a statement that uses `iris` data, then does some mutation and finally creates a summary.
 
