@@ -4,9 +4,6 @@
     <loc>https://rstudio.github.io/parsons/index.html</loc>
   </url>
   <url>
-    <loc>https://rstudio.github.io/parsons/reference/css.html</loc>
-  </url>
-  <url>
     <loc>https://rstudio.github.io/parsons/reference/expectation_pass.html</loc>
   </url>
   <url>
@@ -22,6 +19,9 @@
     <loc>https://rstudio.github.io/parsons/reference/question_parsons.html</loc>
   </url>
   <url>
-    <loc>https://rstudio.github.io/parsons/reference/question_try_again_input.parsons_question.html</loc>
+    <loc>https://rstudio.github.io/parsons/reference/question_ui_try_again.parsons_question.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/parsons/articles/introduction.html</loc>
   </url>
 </urlset>

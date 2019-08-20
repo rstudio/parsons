@@ -74,7 +74,7 @@ learnr tutorial, so please see the documentation at question_parsons()" />
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">parsons</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9001</span>
       </span>
     </div>
 
@@ -88,6 +88,18 @@ learnr tutorial, so please see the documentation at question_parsons()" />
 </li>
 <li>
   <a href="../reference/index.html">Reference</a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Articles
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../articles/introduction.html">introduction</a>
+    </li>
+  </ul>
 </li>
       </ul>
       
@@ -125,7 +137,8 @@ learnr tutorial, so please see the documentation at question_parsons()" />
 
     <pre class="usage"><span class='fu'>parsons_problem</span>(<span class='no'>initial</span>, <span class='kw'>text</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"Drag from here"</span>,
   <span class='st'>"Construct your solution here"</span>), <span class='kw'>header</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>input_id</span>, <span class='no'>group_name</span>,
-  <span class='kw'>options</span> <span class='kw'>=</span> <span class='fu'>sortable_options</span>(), <span class='kw'>style</span> <span class='kw'>=</span> <span class='fu'><a href='css.html'>css_parsons</a></span>())</pre>
+  <span class='kw'>options</span> <span class='kw'>=</span> <span class='fu'>sortable_options</span>(), <span class='kw'>orientation</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"vertical"</span>,
+  <span class='st'>"horizontal"</span>))</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -151,16 +164,17 @@ encoded as an HTML <code>&lt;p&gt;</code> tag, so not strictly speaking a header
     </tr>
     <tr>
       <th>group_name</th>
-      <td><p>Passed to <code>sortable.js</code> as the group name</p></td>
+      <td><p>Passed to <code>SortableJS</code> as the group name. Also the input
+value set in Shiny. (<code>input[[group_name]]</code>)</p></td>
     </tr>
     <tr>
       <th>options</th>
       <td><p>Options to be supplied to sortable_js object. See sortable_options for more details</p></td>
     </tr>
     <tr>
-      <th>style</th>
-      <td><p>A css stylesheet, provided as a character string. See also
-<code><a href='css.html'>css_parsons()</a></code></p></td>
+      <th>orientation</th>
+      <td><p>Either <code>horizontal</code> or <code>vertical</code>, and specifies the
+layout of the components on the page.</p></td>
     </tr>
     </table>
     
@@ -189,8 +203,36 @@ encoded as an HTML <code>&lt;p&gt;</code> tag, so not strictly speaking a header
       <span class='st'>"print()"</span>
   ),
   <span class='kw'>input_id</span> <span class='kw'>=</span> <span class='st'>"input_parsons"</span>
-)
-
+)</div><div class='output co'>#&gt; &lt;div class="bucket-list-container default-sortable"&gt;
+#&gt;   &lt;p&gt;This is an example of a Parsons problem&lt;/p&gt;
+#&gt;   &lt;div class="default-sortable bucket-list vertical"&gt;
+#&gt;     &lt;div class="rank-list-container default-sortable column_1"&gt;
+#&gt;       &lt;p class="rank-list-title"&gt;Drag from here&lt;/p&gt;
+#&gt;       &lt;div class="rank-list" id="rank_list_id_1"&gt;
+#&gt;         &lt;div class="rank-list-item-container"&gt;
+#&gt;           &lt;div class="rank-list-item" data-rank-id=""&gt;iris&lt;/div&gt;
+#&gt;         &lt;/div&gt;
+#&gt;         &lt;div class="rank-list-item-container"&gt;
+#&gt;           &lt;div class="rank-list-item" data-rank-id=""&gt;mutate(...)&lt;/div&gt;
+#&gt;         &lt;/div&gt;
+#&gt;         &lt;div class="rank-list-item-container"&gt;
+#&gt;           &lt;div class="rank-list-item" data-rank-id=""&gt;summarize(...)&lt;/div&gt;
+#&gt;         &lt;/div&gt;
+#&gt;         &lt;div class="rank-list-item-container"&gt;
+#&gt;           &lt;div class="rank-list-item" data-rank-id=""&gt;print()&lt;/div&gt;
+#&gt;         &lt;/div&gt;
+#&gt;       &lt;/div&gt;
+#&gt;     &lt;/div&gt;
+#&gt;     &lt;div id="htmlwidget-ac96cb3ee4656e2e9ec3" style="width:0px;height:0px;" class="sortable html-widget"&gt;&lt;/div&gt;
+#&gt;     &lt;script type="application/json" data-for="htmlwidget-ac96cb3ee4656e2e9ec3"&gt;{"x":{"selector":"rank_list_id_1","options":{"animation":150,"group":"parsons_group_1","onLoad":"function() {\n  try {\n    (function(evt) {\n  if (typeof Shiny == \"undefined\") {\n    return;\n  }\n\n  var child_id_or_text_fn = function(child) {  return     $(child).attr('data-rank-id') ||     $.trim(child.innerText);};\n\n  var ret = {}, i;\n  var selectors = [[\"rank_list_id_1\"],[\"rank_list_id_2\"]];\n  var input_ids = [[\"input_parsons_1\"],[\"input_parsons\"]];\n\n  $.map(selectors, function(selector, i) {\n    var input_id = input_ids[i];\n    var item = $('#' + selector).get(0);\n    if (item &amp;&amp; item.children) {\n      ret[input_id] = $.map(item.children, child_id_or_text_fn);\n    } else {\n      ret[input_id] = undefined;\n    }\n  });\n  Shiny.setInputValue(\"parsons_group_1:sortablejs.bucket_list\", ret)\n}).apply(this, arguments);\n  } catch(e) {\n    if (window.console &amp;&amp; window.console.error) window.console.error(e);\n  }\n\n  try {\n    (function(evt) {\n  if (typeof Shiny !== \"undefined\") {\n    Shiny.setInputValue(\"input_parsons_1:sortablejs.rank_list\", $.map(  this.el.children, function(child) {  return     $(child).attr('data-rank-id') ||     $.trim(child.innerText);}))\n  }\n}).apply(this, arguments);\n  } catch(e) {\n    if (window.console &amp;&amp; window.console.error) window.console.error(e);\n  }\n}","onSort":"function() {\n  try {\n    (function(evt) {\n  if (typeof Shiny == \"undefined\") {\n    return;\n  }\n\n  var child_id_or_text_fn = function(child) {  return     $(child).attr('data-rank-id') ||     $.trim(child.innerText);};\n\n  var ret = {}, i;\n  var selectors = [[\"rank_list_id_1\"],[\"rank_list_id_2\"]];\n  var input_ids = [[\"input_parsons_1\"],[\"input_parsons\"]];\n\n  $.map(selectors, function(selector, i) {\n    var input_id = input_ids[i];\n    var item = $('#' + selector).get(0);\n    if (item &amp;&amp; item.children) {\n      ret[input_id] = $.map(item.children, child_id_or_text_fn);\n    } else {\n      ret[input_id] = undefined;\n    }\n  });\n  Shiny.setInputValue(\"parsons_group_1:sortablejs.bucket_list\", ret)\n}).apply(this, arguments);\n  } catch(e) {\n    if (window.console &amp;&amp; window.console.error) window.console.error(e);\n  }\n\n  try {\n    (function(evt) {\n  if (typeof Shiny !== \"undefined\") {\n    Shiny.setInputValue(\"input_parsons_1:sortablejs.rank_list\", $.map(  this.el.children, function(child) {  return     $(child).attr('data-rank-id') ||     $.trim(child.innerText);}))\n  }\n}).apply(this, arguments);\n  } catch(e) {\n    if (window.console &amp;&amp; window.console.error) window.console.error(e);\n  }\n}"}},"evals":["options.onLoad","options.onSort"],"jsHooks":[]}&lt;/script&gt;
+#&gt;     &lt;div class="rank-list-container default-sortable column_2"&gt;
+#&gt;       &lt;p class="rank-list-title"&gt;Construct your solution here&lt;/p&gt;
+#&gt;       &lt;div class="rank-list" id="rank_list_id_2"&gt;&lt;/div&gt;
+#&gt;     &lt;/div&gt;
+#&gt;     &lt;div id="htmlwidget-e5c8c404fe174e4c81bd" style="width:0px;height:0px;" class="sortable html-widget"&gt;&lt;/div&gt;
+#&gt;     &lt;script type="application/json" data-for="htmlwidget-e5c8c404fe174e4c81bd"&gt;{"x":{"selector":"rank_list_id_2","options":{"animation":150,"group":"parsons_group_1","onLoad":"function() {\n  try {\n    (function(evt) {\n  if (typeof Shiny == \"undefined\") {\n    return;\n  }\n\n  var child_id_or_text_fn = function(child) {  return     $(child).attr('data-rank-id') ||     $.trim(child.innerText);};\n\n  var ret = {}, i;\n  var selectors = [[\"rank_list_id_1\"],[\"rank_list_id_2\"]];\n  var input_ids = [[\"input_parsons_1\"],[\"input_parsons\"]];\n\n  $.map(selectors, function(selector, i) {\n    var input_id = input_ids[i];\n    var item = $('#' + selector).get(0);\n    if (item &amp;&amp; item.children) {\n      ret[input_id] = $.map(item.children, child_id_or_text_fn);\n    } else {\n      ret[input_id] = undefined;\n    }\n  });\n  Shiny.setInputValue(\"parsons_group_1:sortablejs.bucket_list\", ret)\n}).apply(this, arguments);\n  } catch(e) {\n    if (window.console &amp;&amp; window.console.error) window.console.error(e);\n  }\n\n  try {\n    (function(evt) {\n  if (typeof Shiny !== \"undefined\") {\n    Shiny.setInputValue(\"input_parsons:sortablejs.rank_list\", $.map(  this.el.children, function(child) {  return     $(child).attr('data-rank-id') ||     $.trim(child.innerText);}))\n  }\n}).apply(this, arguments);\n  } catch(e) {\n    if (window.console &amp;&amp; window.console.error) window.console.error(e);\n  }\n}","onSort":"function() {\n  try {\n    (function(evt) {\n  if (typeof Shiny == \"undefined\") {\n    return;\n  }\n\n  var child_id_or_text_fn = function(child) {  return     $(child).attr('data-rank-id') ||     $.trim(child.innerText);};\n\n  var ret = {}, i;\n  var selectors = [[\"rank_list_id_1\"],[\"rank_list_id_2\"]];\n  var input_ids = [[\"input_parsons_1\"],[\"input_parsons\"]];\n\n  $.map(selectors, function(selector, i) {\n    var input_id = input_ids[i];\n    var item = $('#' + selector).get(0);\n    if (item &amp;&amp; item.children) {\n      ret[input_id] = $.map(item.children, child_id_or_text_fn);\n    } else {\n      ret[input_id] = undefined;\n    }\n  });\n  Shiny.setInputValue(\"parsons_group_1:sortablejs.bucket_list\", ret)\n}).apply(this, arguments);\n  } catch(e) {\n    if (window.console &amp;&amp; window.console.error) window.console.error(e);\n  }\n\n  try {\n    (function(evt) {\n  if (typeof Shiny !== \"undefined\") {\n    Shiny.setInputValue(\"input_parsons:sortablejs.rank_list\", $.map(  this.el.children, function(child) {  return     $(child).attr('data-rank-id') ||     $.trim(child.innerText);}))\n  }\n}).apply(this, arguments);\n  } catch(e) {\n    if (window.console &amp;&amp; window.console.error) window.console.error(e);\n  }\n}"}},"evals":["options.onLoad","options.onSort"],"jsHooks":[]}&lt;/script&gt;
+#&gt;   &lt;/div&gt;
+#&gt; &lt;/div&gt;</div><div class='input'>
 
 <span class='fu'>parsons_problem</span>(
   <span class='kw'>initial</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(
@@ -200,7 +242,36 @@ encoded as an HTML <code>&lt;p&gt;</code> tag, so not strictly speaking a header
     <span class='st'>"print()"</span>
   ),
   <span class='kw'>input_id</span> <span class='kw'>=</span> <span class='st'>"input_parsons"</span>
-)</div></pre>
+)</div><div class='output co'>#&gt; &lt;div class="bucket-list-container default-sortable"&gt;
+#&gt;   &lt;div class="default-sortable bucket-list vertical"&gt;
+#&gt;     &lt;div class="rank-list-container default-sortable column_1"&gt;
+#&gt;       &lt;p class="rank-list-title"&gt;Drag from here&lt;/p&gt;
+#&gt;       &lt;div class="rank-list" id="rank_list_id_3"&gt;
+#&gt;         &lt;div class="rank-list-item-container"&gt;
+#&gt;           &lt;div class="rank-list-item" data-rank-id=""&gt;iris&lt;/div&gt;
+#&gt;         &lt;/div&gt;
+#&gt;         &lt;div class="rank-list-item-container"&gt;
+#&gt;           &lt;div class="rank-list-item" data-rank-id=""&gt;mutate(...)&lt;/div&gt;
+#&gt;         &lt;/div&gt;
+#&gt;         &lt;div class="rank-list-item-container"&gt;
+#&gt;           &lt;div class="rank-list-item" data-rank-id=""&gt;summarize(...)&lt;/div&gt;
+#&gt;         &lt;/div&gt;
+#&gt;         &lt;div class="rank-list-item-container"&gt;
+#&gt;           &lt;div class="rank-list-item" data-rank-id=""&gt;print()&lt;/div&gt;
+#&gt;         &lt;/div&gt;
+#&gt;       &lt;/div&gt;
+#&gt;     &lt;/div&gt;
+#&gt;     &lt;div id="htmlwidget-36aa3d2a04d42bbc2145" style="width:0px;height:0px;" class="sortable html-widget"&gt;&lt;/div&gt;
+#&gt;     &lt;script type="application/json" data-for="htmlwidget-36aa3d2a04d42bbc2145"&gt;{"x":{"selector":"rank_list_id_3","options":{"animation":150,"group":"parsons_group_2","onLoad":"function() {\n  try {\n    (function(evt) {\n  if (typeof Shiny == \"undefined\") {\n    return;\n  }\n\n  var child_id_or_text_fn = function(child) {  return     $(child).attr('data-rank-id') ||     $.trim(child.innerText);};\n\n  var ret = {}, i;\n  var selectors = [[\"rank_list_id_3\"],[\"rank_list_id_4\"]];\n  var input_ids = [[\"input_parsons_1\"],[\"input_parsons\"]];\n\n  $.map(selectors, function(selector, i) {\n    var input_id = input_ids[i];\n    var item = $('#' + selector).get(0);\n    if (item &amp;&amp; item.children) {\n      ret[input_id] = $.map(item.children, child_id_or_text_fn);\n    } else {\n      ret[input_id] = undefined;\n    }\n  });\n  Shiny.setInputValue(\"parsons_group_2:sortablejs.bucket_list\", ret)\n}).apply(this, arguments);\n  } catch(e) {\n    if (window.console &amp;&amp; window.console.error) window.console.error(e);\n  }\n\n  try {\n    (function(evt) {\n  if (typeof Shiny !== \"undefined\") {\n    Shiny.setInputValue(\"input_parsons_1:sortablejs.rank_list\", $.map(  this.el.children, function(child) {  return     $(child).attr('data-rank-id') ||     $.trim(child.innerText);}))\n  }\n}).apply(this, arguments);\n  } catch(e) {\n    if (window.console &amp;&amp; window.console.error) window.console.error(e);\n  }\n}","onSort":"function() {\n  try {\n    (function(evt) {\n  if (typeof Shiny == \"undefined\") {\n    return;\n  }\n\n  var child_id_or_text_fn = function(child) {  return     $(child).attr('data-rank-id') ||     $.trim(child.innerText);};\n\n  var ret = {}, i;\n  var selectors = [[\"rank_list_id_3\"],[\"rank_list_id_4\"]];\n  var input_ids = [[\"input_parsons_1\"],[\"input_parsons\"]];\n\n  $.map(selectors, function(selector, i) {\n    var input_id = input_ids[i];\n    var item = $('#' + selector).get(0);\n    if (item &amp;&amp; item.children) {\n      ret[input_id] = $.map(item.children, child_id_or_text_fn);\n    } else {\n      ret[input_id] = undefined;\n    }\n  });\n  Shiny.setInputValue(\"parsons_group_2:sortablejs.bucket_list\", ret)\n}).apply(this, arguments);\n  } catch(e) {\n    if (window.console &amp;&amp; window.console.error) window.console.error(e);\n  }\n\n  try {\n    (function(evt) {\n  if (typeof Shiny !== \"undefined\") {\n    Shiny.setInputValue(\"input_parsons_1:sortablejs.rank_list\", $.map(  this.el.children, function(child) {  return     $(child).attr('data-rank-id') ||     $.trim(child.innerText);}))\n  }\n}).apply(this, arguments);\n  } catch(e) {\n    if (window.console &amp;&amp; window.console.error) window.console.error(e);\n  }\n}"}},"evals":["options.onLoad","options.onSort"],"jsHooks":[]}&lt;/script&gt;
+#&gt;     &lt;div class="rank-list-container default-sortable column_2"&gt;
+#&gt;       &lt;p class="rank-list-title"&gt;Construct your solution here&lt;/p&gt;
+#&gt;       &lt;div class="rank-list" id="rank_list_id_4"&gt;&lt;/div&gt;
+#&gt;     &lt;/div&gt;
+#&gt;     &lt;div id="htmlwidget-febe03efa1a2d8d52a86" style="width:0px;height:0px;" class="sortable html-widget"&gt;&lt;/div&gt;
+#&gt;     &lt;script type="application/json" data-for="htmlwidget-febe03efa1a2d8d52a86"&gt;{"x":{"selector":"rank_list_id_4","options":{"animation":150,"group":"parsons_group_2","onLoad":"function() {\n  try {\n    (function(evt) {\n  if (typeof Shiny == \"undefined\") {\n    return;\n  }\n\n  var child_id_or_text_fn = function(child) {  return     $(child).attr('data-rank-id') ||     $.trim(child.innerText);};\n\n  var ret = {}, i;\n  var selectors = [[\"rank_list_id_3\"],[\"rank_list_id_4\"]];\n  var input_ids = [[\"input_parsons_1\"],[\"input_parsons\"]];\n\n  $.map(selectors, function(selector, i) {\n    var input_id = input_ids[i];\n    var item = $('#' + selector).get(0);\n    if (item &amp;&amp; item.children) {\n      ret[input_id] = $.map(item.children, child_id_or_text_fn);\n    } else {\n      ret[input_id] = undefined;\n    }\n  });\n  Shiny.setInputValue(\"parsons_group_2:sortablejs.bucket_list\", ret)\n}).apply(this, arguments);\n  } catch(e) {\n    if (window.console &amp;&amp; window.console.error) window.console.error(e);\n  }\n\n  try {\n    (function(evt) {\n  if (typeof Shiny !== \"undefined\") {\n    Shiny.setInputValue(\"input_parsons:sortablejs.rank_list\", $.map(  this.el.children, function(child) {  return     $(child).attr('data-rank-id') ||     $.trim(child.innerText);}))\n  }\n}).apply(this, arguments);\n  } catch(e) {\n    if (window.console &amp;&amp; window.console.error) window.console.error(e);\n  }\n}","onSort":"function() {\n  try {\n    (function(evt) {\n  if (typeof Shiny == \"undefined\") {\n    return;\n  }\n\n  var child_id_or_text_fn = function(child) {  return     $(child).attr('data-rank-id') ||     $.trim(child.innerText);};\n\n  var ret = {}, i;\n  var selectors = [[\"rank_list_id_3\"],[\"rank_list_id_4\"]];\n  var input_ids = [[\"input_parsons_1\"],[\"input_parsons\"]];\n\n  $.map(selectors, function(selector, i) {\n    var input_id = input_ids[i];\n    var item = $('#' + selector).get(0);\n    if (item &amp;&amp; item.children) {\n      ret[input_id] = $.map(item.children, child_id_or_text_fn);\n    } else {\n      ret[input_id] = undefined;\n    }\n  });\n  Shiny.setInputValue(\"parsons_group_2:sortablejs.bucket_list\", ret)\n}).apply(this, arguments);\n  } catch(e) {\n    if (window.console &amp;&amp; window.console.error) window.console.error(e);\n  }\n\n  try {\n    (function(evt) {\n  if (typeof Shiny !== \"undefined\") {\n    Shiny.setInputValue(\"input_parsons:sortablejs.rank_list\", $.map(  this.el.children, function(child) {  return     $(child).attr('data-rank-id') ||     $.trim(child.innerText);}))\n  }\n}).apply(this, arguments);\n  } catch(e) {\n    if (window.console &amp;&amp; window.console.error) window.console.error(e);\n  }\n}"}},"evals":["options.onLoad","options.onSort"],"jsHooks":[]}&lt;/script&gt;
+#&gt;   &lt;/div&gt;
+#&gt; &lt;/div&gt;</div><div class='input'>
+</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
