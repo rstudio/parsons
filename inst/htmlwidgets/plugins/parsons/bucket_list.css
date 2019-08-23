@@ -1,0 +1,26 @@
+.default-sortable.bucket-list-container {
+  background-color: transparent;
+  padding: 10px;
+  margin: 5px;
+  flex: 1 0 auto;
+  min-height: 100px;
+}
+
+.default-sortable.bucket-list {
+  display: flex;
+}
+
+.default-sortable.bucket-list.bucket-list-horizontal {
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.default-sortable.bucket-list.bucket-list-vertical {
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.default-sortable.bucket-list.bucket-list-vertical .rank-list-container {
+  flex: 1 0 auto;
+}
+

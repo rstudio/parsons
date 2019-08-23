@@ -15,7 +15,7 @@ library(magrittr)
 ```
 
 
-## Hello world!
+## Parson's problems Hello World!
 
 A Parsons problem gives the student some programming statements in random order.  The student then constructs an answer by dragging the statements into the correct order.
 
@@ -34,7 +34,8 @@ question_parsons(
     "World",
     "!"
     )
-  )
+  ),
+  problem_type = "base"
 )
 ```
 
@@ -65,7 +66,8 @@ question_parsons(
     "!"
     ),
     correct = TRUE
-  )
+  ),
+  problem_type = "base"
 )
 ```
 
@@ -104,7 +106,8 @@ question_parsons(
   fail_if(
     ~length(.) <= 2,
     "Provide more answers"
-  )
+  ),
+  problem_type = "base"
 )
 ```
 
@@ -141,7 +144,13 @@ question_parsons(
   fail_if(
     ~{.[1] != "iris"},
     message = "Your solution should start with 'iris'"
-  )
+  ),
+  fail_if(
+    ~length(.) < 3,
+    message = "Use at least 3 elements to form your answer"
+  ),
+
+  problem_type = "tidyverse"
 )
 ```
 

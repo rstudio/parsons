@@ -1,16 +1,59 @@
-.rank-list-container .column_2 {
-  padding-bottom: 30px;
+.default-parsons .rank-list-item {
+  background-color: transparent;
+  padding: 0;
+  border: none;
 }
 
-.rank-list-item {
+.default-parsons .rank-list-item.sortable-chosen {
+  background-color: white;
+  border: none;
+}
+
+.default-parsons .rank-list-item.sortable-ghost {
+  background-color: #d6e6f4;
+}
+
+.default-parsons .rank-list-item.sortable-drag {
+  background-color: #75aadb;
+  border: 1px solid #4d91d0;
+}
+
+.default-parsons .rank-list-item:hover:not(.disabled) {
+  background-color: white;
+}
+
+.default-parsons .rank-list-item .rank-list-item-internal {
+  border-radius: 3px;
+  display: inherit;
+  padding: 10px 15px;
+  background-color: inherit;
+  border: 1px solid #ddd;
+  overflow: inherit;
+  width: inherit;
+  background-color: transparent;
   font-family: monospace, sant-serif;
+  width: fit-content;
 }
 
-.column_2 .rank-list-item-container:not(:last-child) .rank-list-item:after {
+.default-parsons .rank-list-item .rank-list-item-internal:hover:not(.disabled) {
+  border-color: #75aadb;
+}
+
+.default-parsons .column_2 .rank-list-item:not(:last-child) .rank-list-item-internal.ggplot2:after {
+  content: " +";
+}
+
+.default-parsons .column_2 .rank-list-item:not(:last-child) .rank-list-item-internal.tidyverse:after {
   content: " %>%";
 }
 
-.column_2 .rank-list-item-container:not(:first-child) {
+.default-parsons .column_2 .rank-list-item:not(:first-child) .rank-list-item-internal.ggplot2 {
   margin-left: 30px;
   width: auto;
 }
+
+.default-parsons .column_2 .rank-list-item:not(:first-child) .rank-list-item-internal.tidyverse {
+  margin-left: 30px;
+  width: auto;
+}
+

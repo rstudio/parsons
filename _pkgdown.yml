@@ -1,19 +1,29 @@
 destination: docs
 url: https://rstudio.github.io/parsons
 reference:
-- title: Learnr question types
-  desc: New question types for learnr tutorials
+- title: Parsons problems
+  desc: Create parsons problems in your learnr tutorials
   contents:
   - starts_with("question")
-- title: Widgets
-  desc: These functions create htmlwidgets with drag-and-drop behaviour
+  - Parsons_problem_hello_world
+- title: Specifying conditions
+  desc: Add multiple conditions to evaluate questions and provide feedback
   contents:
-  - parsons
-- title: Widget style sheets
-  desc: Control the look-and-feel of your widgets
-  contents:
-  - starts_with("css")
+  - matches("pass")
 - title: Package documentation
   desc: ~
   contents:
   - parsons
+
+tutorials:
+- name: tutorial_parsons
+  title: "Parson's problems Hello World!"
+  url: https://andrie-de-vries.shinyapps.io/Parsons_problem_hello_world/
+
+articles:
+- title: Creating a parsons problem
+  desc: ~
+  contents:
+  - introduction
+
+

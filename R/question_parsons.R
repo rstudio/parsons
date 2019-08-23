@@ -9,7 +9,7 @@ NULL
 #'
 #' @param ... One or more answers.  Passed to [learnr::question()].
 #' @inheritParams learnr::question
-#' @inheritParams parsons
+#' @inheritParams parsons_problem
 #'
 # @param type Must be "parsons_question"
 #' @param correct Text to print for a correct answer (defaults to "Correct!")
@@ -23,7 +23,8 @@ NULL
 question_parsons <- function(
   initial,
   ...,
-  # type = c("parsons_question"),
+  problem_type = c("base", "ggplot2", "tidyverse"),
+  orientation = c("horizontal", "vertical"),
   correct = "Correct!",
   incorrect = "Incorrect",
   try_again = incorrect,
@@ -42,6 +43,9 @@ question_parsons <- function(
   answers <- dots[vapply(dots, is_answer, FUN.VALUE = logical(1))]
   pass <- dots[vapply(dots, is.expectation_pass, FUN.VALUE = logical(1))]
   fail <- dots[vapply(dots, is.expectation_fail, FUN.VALUE = logical(1))]
+
+  problem_type <- match.arg(problem_type)
+  orientation <- match.arg(orientation)
 
   z <- do.call(
     learnr::question,
@@ -64,6 +68,7 @@ question_parsons <- function(
           initial = initial,
           pass = pass,
           fail = fail,
+          problem_type = problem_type,
           sortable_options = options
         )
       )
@@ -90,6 +95,8 @@ question_ui_initialize.parsons_question <- function(question, answer_input, ...)
       setdiff(labels, answer_input),
       answer_input
     ),
+    problem_type = question$options$problem_type,
+    orientation = question$options$orientation,
     options = question$options$sortable_options,
     ...
   )
@@ -121,6 +128,8 @@ question_ui_completed.parsons_question <- function(question, answer_input, ...) 
         setdiff(labels, answer_input),
         answer_input
       ),
+      problem_type = question$options$problem_type,
+      orientation = question$options$orientation,
       options = new_options,
       ...
     )
@@ -157,6 +166,8 @@ question_ui_try_again.parsons_question <- function(question, answer_input, ...) 
         setdiff(labels, answer_input),
         answer_input
       ),
+      problem_type = question$options$problem_type,
+      orientation = question$options$orientation,
       options = new_options,
       ...
     )
