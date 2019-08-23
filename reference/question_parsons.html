@@ -94,7 +94,7 @@ pipe %&amp;gt;% operator
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="../index.html">parsons</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9001</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.2.9000</span>
       </span>
     </div>
 
@@ -118,6 +118,18 @@ pipe %&amp;gt;% operator
   <ul class="dropdown-menu" role="menu">
     <li>
       <a href="../articles/introduction.html">introduction</a>
+    </li>
+  </ul>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    Tutorials
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="../tutorials/tutorial_parsons.html">Parson's problems Hello World!</a>
     </li>
   </ul>
 </li>
@@ -175,12 +187,13 @@ pipe <code>%&gt;%</code> operator</p></li>
     
     </div>
 
-    <pre class="usage"><span class='fu'>question_parsons</span>(<span class='no'>initial</span>, <span class='no'>...</span>, <span class='kw'>correct</span> <span class='kw'>=</span> <span class='st'>"Correct!"</span>,
-  <span class='kw'>incorrect</span> <span class='kw'>=</span> <span class='st'>"Incorrect"</span>, <span class='kw'>try_again</span> <span class='kw'>=</span> <span class='no'>incorrect</span>, <span class='kw'>message</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
-  <span class='kw'>post_message</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>loading</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"Loading: "</span>),
-  <span class='kw'>submit_button</span> <span class='kw'>=</span> <span class='st'>"Give feedback"</span>, <span class='kw'>try_again_button</span> <span class='kw'>=</span> <span class='st'>"Try Again"</span>,
-  <span class='kw'>allow_retry</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>random_answer_order</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
-  <span class='kw'>options</span> <span class='kw'>=</span> <span class='fu'>sortable_options</span>())</pre>
+    <pre class="usage"><span class='fu'>question_parsons</span>(<span class='no'>initial</span>, <span class='no'>...</span>, <span class='kw'>problem_type</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"base"</span>, <span class='st'>"ggplot2"</span>,
+  <span class='st'>"tidyverse"</span>), <span class='kw'>orientation</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"horizontal"</span>, <span class='st'>"vertical"</span>),
+  <span class='kw'>correct</span> <span class='kw'>=</span> <span class='st'>"Correct!"</span>, <span class='kw'>incorrect</span> <span class='kw'>=</span> <span class='st'>"Incorrect"</span>,
+  <span class='kw'>try_again</span> <span class='kw'>=</span> <span class='no'>incorrect</span>, <span class='kw'>message</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>post_message</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>loading</span> <span class='kw'>=</span> <span class='fu'><a href='https://www.rdocumentation.org/packages/base/topics/c'>c</a></span>(<span class='st'>"Loading: "</span>), <span class='kw'>submit_button</span> <span class='kw'>=</span> <span class='st'>"Give feedback"</span>,
+  <span class='kw'>try_again_button</span> <span class='kw'>=</span> <span class='st'>"Try Again"</span>, <span class='kw'>allow_retry</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>random_answer_order</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>options</span> <span class='kw'>=</span> <span class='fu'>sortable_options</span>())</pre>
     
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -192,6 +205,18 @@ pipe <code>%&gt;%</code> operator</p></li>
     <tr>
       <th>...</th>
       <td><p>One or more answers.  Passed to <code><a href='https://www.rdocumentation.org/packages/learnr/topics/quiz'>learnr::question()</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>problem_type</th>
+      <td><p>One of <code>base</code>, <code>ggplot2</code> or <code>tidyverse</code>, indicating the type of
+problem statement.  For <code>tidyverse</code>, the resulting answer will
+automatically append a <code>%&gt;%</code> at the end of each answer, and for <code>ggplot2</code>
+every line will be followed by a <code>+</code>.</p></td>
+    </tr>
+    <tr>
+      <th>orientation</th>
+      <td><p>Either <code>horizontal</code> or <code>vertical</code>, and specifies the
+layout of the components on the page.</p></td>
     </tr>
     <tr>
       <th>correct</th>
