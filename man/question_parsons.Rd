@@ -4,17 +4,26 @@
 \alias{question_parsons}
 \title{Parsons problem question for learnr tutorials (experimental).}
 \usage{
-question_parsons(initial, ..., correct = "Correct!",
-  incorrect = "Incorrect", try_again = incorrect, message = NULL,
-  post_message = NULL, loading = c("Loading: "),
-  submit_button = "Give feedback", try_again_button = "Try Again",
-  allow_retry = TRUE, random_answer_order = TRUE,
-  options = sortable_options())
+question_parsons(initial, ..., problem_type = c("base", "ggplot2",
+  "tidyverse"), orientation = c("horizontal", "vertical"),
+  correct = "Correct!", incorrect = "Incorrect",
+  try_again = incorrect, message = NULL, post_message = NULL,
+  loading = c("Loading: "), submit_button = "Give feedback",
+  try_again_button = "Try Again", allow_retry = TRUE,
+  random_answer_order = TRUE, options = sortable_options())
 }
 \arguments{
 \item{initial}{Initial value of answer options. This must be a character vector.}
 
 \item{...}{One or more answers.  Passed to \code{\link[learnr:question]{learnr::question()}}.}
+
+\item{problem_type}{One of \code{base}, \code{ggplot2} or \code{tidyverse}, indicating the type of
+problem statement.  For \code{tidyverse}, the resulting answer will
+automatically append a \code{\%>\%} at the end of each answer, and for \code{ggplot2}
+every line will be followed by a \code{+}.}
+
+\item{orientation}{Either \code{horizontal} or \code{vertical}, and specifies the
+layout of the components on the page.}
 
 \item{correct}{Text to print for a correct answer (defaults to "Correct!")}
 

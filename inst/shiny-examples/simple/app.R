@@ -13,7 +13,8 @@ ui <- fluidPage(
       ## This is the parsons problem
       parsons_problem(
         header = "This is an example of a Parsons problem",
-        orientation = "vertical",
+        orientation = "horizontal",
+        problem_type = "tidyverse",
         initial = c(
           "iris",
           "mutate(...)",

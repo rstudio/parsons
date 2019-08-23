@@ -6,8 +6,10 @@
 \usage{
 parsons_problem(initial, text = c("Drag from here",
   "Construct your solution here"), header = NULL, input_id, group_name,
-  options = sortable_options(), orientation = c("vertical",
-  "horizontal"))
+  problem_type = c("base", "ggplot2", "tidyverse"),
+  class = "default-sortable default-parsons",
+  options = sortable_options(), orientation = c("horizontal",
+  "vertical"))
 }
 \arguments{
 \item{initial}{Vector with initial values for problem (to appear in left
@@ -23,6 +25,14 @@ encoded as an HTML \code{<p>} tag, so not strictly speaking a header.)}
 
 \item{group_name}{Passed to \code{SortableJS} as the group name. Also the input
 value set in Shiny. (\code{input[[group_name]]})}
+
+\item{problem_type}{One of \code{base}, \code{ggplot2} or \code{tidyverse}, indicating the type of
+problem statement.  For \code{tidyverse}, the resulting answer will
+automatically append a \code{\%>\%} at the end of each answer, and for \code{ggplot2}
+every line will be followed by a \code{+}.}
+
+\item{class}{A css class applied to the rank list.  This can be used to
+define custom styling.}
 
 \item{options}{Options to be supplied to \link{sortable_js} object. See \link{sortable_options} for more details}
 

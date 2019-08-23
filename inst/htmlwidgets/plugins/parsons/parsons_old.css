@@ -1,0 +1,16 @@
+.rank-list-container .column_2 {
+  padding-bottom: 30px;
+}
+
+.rank-list-item {
+  font-family: monospace, sant-serif;
+}
+
+.column_2 .rank-list-item-container:not(:last-child) .rank-list-item:after {
+  content: " %>%";
+}
+
+.column_2 .rank-list-item-container:not(:first-child) {
+  margin-left: 30px;
+  width: auto;
+}

@@ -1,7 +1,7 @@
 Package: parsons
 Type: Package
 Title: Create Parsons Programming Problems in 'learnr` Tutorials
-Version: 0.0.1.9001
+Version: 0.0.2.9000
 Date: 2019-08-19
 Authors@R: c(
     person("Andrie", "de Vries", role = c("cre", "aut"), email = "apdevries@gmail.com"),
@@ -13,7 +13,7 @@ BugReports: https://github.com/rstudio/parsons/issues
 License: MIT + file LICENSE
 LazyData: TRUE
 Imports:
-    sortable,
+    sortable (>= 0.3.1),
     htmltools,
     htmlwidgets,
     learnr (>= 0.9.2),
@@ -27,7 +27,7 @@ Suggests:
     withr,
     rmarkdown
 Remotes: 
-    rstudio/sortable@parsons_compatibility,
+    rstudio/sortable,
     rstudio/learnr
 VignetteBuilder: knitr
 RoxygenNote: 6.1.1

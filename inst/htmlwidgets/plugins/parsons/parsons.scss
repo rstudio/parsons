@@ -1,0 +1,88 @@
+@import "colors";
+
+.default-parsons {
+    .rank-list-item {
+        background-color: transparent;
+        padding: 0;
+        border: none;
+        
+        &:last-child {
+            // padding-bottom: 50px;
+            // background-color: red;
+        }
+        &:last-child.sortable-chosen {
+            // padding-bottom: 0px;
+            // background-color: red;
+        }
+        &:hover:not(.disabled) {
+            // padding-bottom: 0px;
+        }
+        &.sortable-chosen {
+            background-color: $item-color;
+            border: none;
+        }
+        &.sortable-ghost {
+            background-color: $item-ghost-color;
+        }
+        // &.sortable-ghost.sortable-chosen {
+        //     background-color: $item-ghost-color;
+        // }
+        &.sortable-drag {
+            // padding-bottom: -50px;
+            background-color: $item-dragging-color;
+            border: 1px solid darken($item-dragging-color, 10%);
+        }
+        &:hover:not(.disabled) {
+            background-color: $item-color;
+        }
+
+    }
+
+    .rank-list-item .rank-list-item-internal {
+
+        border-radius: $border-radius;
+        // position: inherit;
+        display: inherit;
+        padding: 10px 15px;
+        background-color: inherit;
+        border: 1px solid $border-color;
+        overflow: inherit;
+        width: inherit;
+
+        background-color: transparent;
+        font-family: monospace, sant-serif;
+        width: fit-content;
+        &:hover:not(.disabled) {
+            // background-color: $item-hover-color;
+            border-color: $item-hover-color;
+        }
+
+    }
+
+    .column_2 {
+        .rank-list-item {
+            &:not(:last-child) .rank-list-item-internal.ggplot2:after {
+                content: " +";
+            }
+            &:not(:last-child) .rank-list-item-internal.tidyverse:after {
+                content: " %>%";
+            }
+        }
+
+         .rank-list-item {
+
+            &:not(:first-child) .rank-list-item-internal.ggplot2  {
+                margin-left: 30px;
+                width: auto;
+            }
+            &:not(:first-child) .rank-list-item-internal.tidyverse {
+                margin-left: 30px;
+                width: auto;
+            }
+        }
+
+    }
+}
+
+
+  
