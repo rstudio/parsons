@@ -1,0 +1,71 @@
+---
+title: bucket problems
+author: Andrie de Vries
+date: "`r Sys.Date()`"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+
+
+```{r setup, include=FALSE}
+library(learnr)
+# library(parsons)
+library(magrittr)
+.shim()
+devtools::load_all(".")
+```
+
+
+## Bucket question hello world
+
+Here is an example.  Drag the statements from the top panel to the bottom panel to produce "Hello World!".
+
+```{r Hello-world, echo=FALSE}
+failed_option <- function(opt){
+  fail_if(
+    function(x){opt %in% x},
+    message = paste(opt, "is not supported")
+  )
+}
+
+contains_all <- function(x, ...){
+  y <- unlist(rlang::list2(...))
+  identical(sort(x), sort(y))
+}
+
+contains_any <- function(x, ...){
+  y <- unlist(rlang::list2(...))
+  any(x %in% y)
+}
+
+pa <-  c("Red Hat", "Ubuntu", "Suse Linux", "CentOS")
+ns <- c( "Windows Server 2018", "Fedora", "Debian")
+
+question_bucket(
+  initial = c(
+    "Windows Server 2018",
+    "Suse Linux",
+    "Ubuntu",
+    "Debian",
+    "Fedora",
+    "Red Hat",
+    "CentOS"
+  ),
+  pass_if(~ contains_all(., pa)),
+  fail_if(
+    ~length(.) < 4,
+    "Provide at least 4 answers"
+  ),
+  fail_if(
+    ~length(.) > 4,
+    "Provide only 4 answers"
+  ),
+  fail_if(~contains_any(., ns), 
+          message = message_if(~which(ns %in% .))
+  ),
+  text = c("Operating systems", "Supported by RStudio Connect")
+)
+```
+
+
