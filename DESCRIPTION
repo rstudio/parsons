@@ -1,7 +1,7 @@
 Package: parsons
 Type: Package
 Title: Create Parsons Programming Problems in 'learnr` Tutorials
-Version: 0.0.2.9000
+Version: 0.0.3.9000
 Date: 2019-08-19
 Authors@R: c(
     person("Andrie", "de Vries", role = c("cre", "aut"), email = "apdevries@gmail.com"),

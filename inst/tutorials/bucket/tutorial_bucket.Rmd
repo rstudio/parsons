@@ -24,7 +24,9 @@ Here is an example of `question_bucket()`, an experimental function in the `pars
 
 Drag the operating systems into the correct bucket:
 
-```{r Hello-world, echo=FALSE}
+
+
+```{r Hello-world}
 
 supported <-  c("Red Hat", "Ubuntu", "Suse Linux", "CentOS")
 unsupported <- c( "Windows Server 2018", "Fedora", "Debian")

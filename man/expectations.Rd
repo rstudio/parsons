@@ -3,11 +3,20 @@
 \name{pass_if}
 \alias{pass_if}
 \alias{fail_if}
+\alias{message_if}
+\alias{contains_all}
+\alias{contains_any}
 \title{Add expectations to a parsons problem.}
 \usage{
 pass_if(f, message = NULL)
 
 fail_if(f, message = "Incorrect")
+
+message_if(f)
+
+contains_all(x, ...)
+
+contains_any(x, ...)
 }
 \arguments{
 \item{f}{One of:
@@ -18,6 +27,10 @@ fail_if(f, message = "Incorrect")
 }}
 
 \item{message}{Message to display if \code{fun} evaluates to TRUE}
+
+\item{x}{Answer to test}
+
+\item{...}{Combined into an answer list}
 }
 \description{
 Add expectations to a parsons problem.

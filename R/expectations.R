@@ -11,13 +11,6 @@ is.expectation_fail <- function(x) {
 }
 
 
-#' Add expectations to a parsons problem.
-#'
-#' @param fun A function of x that should evaluate to TRUE or FALSE
-#' @param message Message to display if `fun` evaluates to TRUE
-#'
-#' @export
-#'
 expectation_pass <- function (fun, message = "failure") {
   structure(
     class = c("parsons_expectation_pass", "list"),
@@ -115,21 +108,19 @@ fail_if.function <- function(f, message = "Incorrect") {
 
 
 #' @export
+#' @rdname expectations
 message_if <- function(f) {
   f
 }
 
-#' @export
 eval_message <- function(f, answer_list) {
   UseMethod("eval_message", f)
 }
 
-#' @export
 eval_message.character <- function(f, answer_list){
   f
 }
 
-#' @export
 eval_message.default <- function(f, answer_list) {
   # browser()
   idx <- rlang::as_function(f)(answer_list)
@@ -139,30 +130,30 @@ eval_message.default <- function(f, answer_list) {
 
 # -------------------------------------------------------------------------
 
-all_of <- function(.x){
-  force(.x)
-  input <- .x
-  function(x)length(input) == length(x) && all(sort(input) == sort(x))
-}
+# all_of <- function(.x){
+#   force(.x)
+#   input <- .x
+#   function(x)length(input) == length(x) && all(sort(input) == sort(x))
+# }
 
-#' @export
-pass_if_all_of <- function(zz, message = NULL) {
-  # f <- function(x){
-  #   length(zz) == length(x) && all(sort(zz) == sort(.x))
-  # }
-  f <- function(x)~identical(sort(x), sort(zz))
-  expectation_pass(
-    fun = rlang::as_function(f),
-    message = message
-  )
-}
+# pass_if_all_of <- function(zz, message = NULL) {
+#   f <- function(x)~identical(sort(x), sort(zz))
+#   expectation_pass(
+#     fun = rlang::as_function(f),
+#     message = message
+#   )
+# }
 
+#' @rdname expectations
+#' @param ... Combined into an answer list
+#' @param x Answer to test
 #' @export
 contains_all <- function(x, ...){
   y <- unlist(rlang::list2(...))
   identical(sort(x), sort(y))
 }
 
+#' @rdname expectations
 #' @export
 contains_any <- function(x, ...){
   y <- unlist(rlang::list2(...))
