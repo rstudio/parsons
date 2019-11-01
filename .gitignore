@@ -7,3 +7,4 @@ README.html
 doc
 inst/tutorials/parsons/rsconnect
 inst/doc
+inst/tutorials/*/*.html

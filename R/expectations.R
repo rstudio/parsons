@@ -156,3 +156,16 @@ pass_if_all_of <- function(zz, message = NULL) {
     message = message
   )
 }
+
+#' @export
+contains_all <- function(x, ...){
+  y <- unlist(rlang::list2(...))
+  identical(sort(x), sort(y))
+}
+
+#' @export
+contains_any <- function(x, ...){
+  y <- unlist(rlang::list2(...))
+  any(x %in% y)
+}
+

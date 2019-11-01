@@ -96,7 +96,18 @@ parsons_problem <- function(
     group_name = group_name,
     orientation = orientation
   )
-  z <- htmltools::tagList(z, parsons_dependencies())
+
+  min_height <- 50 * (length(initial[[1]]) + 1)
+  z <- htmltools::tagList(
+    z,
+    parsons_dependencies(),
+    htmltools::tags$style(
+      sprintf(
+        htmltools::HTML(".rank-list-container {min-height: %spx;}"),
+        min_height
+      )
+    )
+    )
   as.parsons_problem(z)
 }
 

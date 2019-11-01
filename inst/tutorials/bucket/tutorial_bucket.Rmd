@@ -1,5 +1,5 @@
 ---
-title: bucket problems
+title: Bucket questions
 author: Andrie de Vries
 date: "`r Sys.Date()`"
 output: learnr::tutorial
@@ -17,42 +17,32 @@ devtools::load_all(".")
 ```
 
 
-## Bucket question hello world
 
-Here is an example.  Drag the statements from the top panel to the bottom panel to produce "Hello World!".
+```{r helpers, context="server"}
+# failed_option <- function(opt){
+#   fail_if(
+#     function(x){opt %in% x},
+#     message = paste(opt, "is not supported")
+#   )
+# }
+
+```
+
+
+## Example
+
+Here is an example of `question_bucket()`, an experimental function in the `parsons` package.
+
+Drag the operating systems into the correct bucket:
 
 ```{r Hello-world, echo=FALSE}
-failed_option <- function(opt){
-  fail_if(
-    function(x){opt %in% x},
-    message = paste(opt, "is not supported")
-  )
-}
 
-contains_all <- function(x, ...){
-  y <- unlist(rlang::list2(...))
-  identical(sort(x), sort(y))
-}
-
-contains_any <- function(x, ...){
-  y <- unlist(rlang::list2(...))
-  any(x %in% y)
-}
-
-pa <-  c("Red Hat", "Ubuntu", "Suse Linux", "CentOS")
-ns <- c( "Windows Server 2018", "Fedora", "Debian")
+supported <-  c("Red Hat", "Ubuntu", "Suse Linux", "CentOS")
+unsupported <- c( "Windows Server 2018", "Fedora", "Debian")
 
 question_bucket(
-  initial = c(
-    "Windows Server 2018",
-    "Suse Linux",
-    "Ubuntu",
-    "Debian",
-    "Fedora",
-    "Red Hat",
-    "CentOS"
-  ),
-  pass_if(~ contains_all(., pa)),
+  initial = c(supported, unsupported),
+  pass_if(~ contains_all(., supported)),
   fail_if(
     ~length(.) < 4,
     "Provide at least 4 answers"
@@ -61,8 +51,8 @@ question_bucket(
     ~length(.) > 4,
     "Provide only 4 answers"
   ),
-  fail_if(~contains_any(., ns), 
-          message = message_if(~which(ns %in% .))
+  fail_if(~contains_any(., unsupported), 
+          message = ~message_if(which(. %in% unsupported))
   ),
   text = c("Operating systems", "Supported by RStudio Connect")
 )
