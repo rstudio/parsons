@@ -10,23 +10,12 @@ runtime: shiny_prerendered
 
 ```{r setup, include=FALSE}
 library(learnr)
-# library(parsons)
+library(parsons)
 library(magrittr)
-.shim()
-devtools::load_all(".")
+# .shim()
+# devtools::load_all(".")
 ```
 
-
-
-```{r helpers, context="server"}
-# failed_option <- function(opt){
-#   fail_if(
-#     function(x){opt %in% x},
-#     message = paste(opt, "is not supported")
-#   )
-# }
-
-```
 
 
 ## Example
@@ -44,15 +33,15 @@ question_bucket(
   initial = c(supported, unsupported),
   pass_if(~ contains_all(., supported)),
   fail_if(
-    ~length(.) < 4,
+    ~ length(.) < 4,
     "Provide at least 4 answers"
   ),
   fail_if(
-    ~length(.) > 4,
+    ~ length(.) > 4,
     "Provide only 4 answers"
   ),
-  fail_if(~contains_any(., unsupported), 
-          message = ~message_if(which(. %in% unsupported))
+  fail_if(~ contains_any(., unsupported), 
+          message = ~ message_if(which(. %in% unsupported))
   ),
   text = c("Operating systems", "Supported by RStudio Connect")
 )
