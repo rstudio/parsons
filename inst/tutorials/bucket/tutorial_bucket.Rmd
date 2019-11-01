@@ -8,19 +8,19 @@ runtime: shiny_prerendered
 
 
 
-```{r setup, include=FALSE}
-library(learnr)
-library(parsons)
-library(magrittr)
-# .shim()
-# devtools::load_all(".")
-```
 
 
 
 ## Example
 
 Here is an example of `question_bucket()`, an experimental function in the `parsons` package.
+
+```{r setup}
+library(learnr)
+library(parsons)
+library(magrittr)
+```
+
 
 Drag the operating systems into the correct bucket:
 

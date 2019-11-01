@@ -56,7 +56,7 @@ question_bucket <- function(
   message = NULL,
   post_message = NULL,
   loading = c("Loading: "),
-  submit_button = "Give feedback",
+  submit_button = "Submit Answer",
   try_again_button = "Try Again",
   allow_retry = TRUE,
   random_answer_order = TRUE,
