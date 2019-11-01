@@ -1,4 +1,5 @@
 #' @importFrom utils modifyList
+#' @importFrom rlang list2
 NULL
 
 #' Parsons problem question for learnr tutorials (experimental).
@@ -39,7 +40,7 @@ question_parsons <- function(
 
 
 ) {
-  dots <- list(...)
+  dots <- list2(...)
   answers <- dots[vapply(dots, is_answer, FUN.VALUE = logical(1))]
   pass <- dots[vapply(dots, is.expectation_pass, FUN.VALUE = logical(1))]
   fail <- dots[vapply(dots, is.expectation_fail, FUN.VALUE = logical(1))]
