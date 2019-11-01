@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>parsons: Create Parsons Programming Problems in 'learnr` Tutorials — parsons • parsons</title>
+<title>bucket problem question for learnr tutorials (experimental). — question_bucket • parsons</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,8 +42,8 @@
 
 
 
-<meta property="og:title" content="parsons: Create Parsons Programming Problems in 'learnr` Tutorials — parsons" />
-<meta property="og:description" content="Create Parsons Programming Problems in 'learnr' Tutorials." />
+<meta property="og:title" content="bucket problem question for learnr tutorials (experimental). — question_bucket" />
+<meta property="og:description" content="bucket problem question for learnr tutorials (experimental)." />
 <meta property="og:image" content="https://rstudio.github.io/parsons/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -137,39 +137,108 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>parsons: Create Parsons Programming Problems in 'learnr` Tutorials</h1>
-    <small class="dont-index">Source: <a href='https://github.com/rstudio/parsons/blob/master/R/parsons-package.R'><code>R/parsons-package.R</code></a></small>
-    <div class="hidden name"><code>parsons.Rd</code></div>
+    <h1>bucket problem question for learnr tutorials (experimental).</h1>
+    <small class="dont-index">Source: <a href='https://github.com/rstudio/parsons/blob/master/R/question_bucket.R'><code>R/question_bucket.R</code></a></small>
+    <div class="hidden name"><code>question_bucket.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Create Parsons Programming Problems in 'learnr' Tutorials.</p>
+    <p>bucket problem question for learnr tutorials (experimental).</p>
     </div>
 
+    <pre class="usage"><span class='fu'>question_bucket</span>(<span class='no'>initial</span>, <span class='no'>...</span>, <span class='kw'>text</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Drag from here"</span>,
+  <span class='st'>"Construct your solution here"</span>), <span class='kw'>orientation</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"horizontal"</span>,
+  <span class='st'>"vertical"</span>), <span class='kw'>correct</span> <span class='kw'>=</span> <span class='st'>"Correct!"</span>, <span class='kw'>incorrect</span> <span class='kw'>=</span> <span class='st'>"Incorrect"</span>,
+  <span class='kw'>try_again</span> <span class='kw'>=</span> <span class='no'>incorrect</span>, <span class='kw'>message</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='kw'>post_message</span> <span class='kw'>=</span> <span class='kw'>NULL</span>,
+  <span class='kw'>loading</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Loading: "</span>), <span class='kw'>submit_button</span> <span class='kw'>=</span> <span class='st'>"Give feedback"</span>,
+  <span class='kw'>try_again_button</span> <span class='kw'>=</span> <span class='st'>"Try Again"</span>, <span class='kw'>allow_retry</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>,
+  <span class='kw'>random_answer_order</span> <span class='kw'>=</span> <span class='fl'>TRUE</span>, <span class='kw'>options</span> <span class='kw'>=</span> <span class='fu'>sortable_options</span>())</pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>initial</th>
+      <td><p>Initial value of answer options. This must be a character vector.</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>One or more answers.  Passed to <code><a href='https://rdrr.io/pkg/learnr/man/quiz.html'>learnr::question()</a></code>.</p></td>
+    </tr>
+    <tr>
+      <th>text</th>
+      <td><p>Question or option text</p></td>
+    </tr>
+    <tr>
+      <th>orientation</th>
+      <td><p>Either <code>horizontal</code> or <code>vertical</code>, and specifies the
+layout of the components on the page.</p></td>
+    </tr>
+    <tr>
+      <th>correct</th>
+      <td><p>Text to print for a correct answer (defaults to "Correct!")</p></td>
+    </tr>
+    <tr>
+      <th>incorrect</th>
+      <td><p>Text to print for an incorrect answer (defaults to "Incorrect")
+when <code>allow_retry</code> is <code>FALSE</code>.</p></td>
+    </tr>
+    <tr>
+      <th>try_again</th>
+      <td><p>Text to print for an incorrect answer (defaults to "Incorrect")
+when <code>allow_retry</code> is <code>TRUE</code>.</p></td>
+    </tr>
+    <tr>
+      <th>message</th>
+      <td><p>Additional message to display along with correct/incorrect feedback.
+This message is always displayed after a question submission.</p></td>
+    </tr>
+    <tr>
+      <th>post_message</th>
+      <td><p>Additional message to display along with correct/incorrect feedback.
+If <code>allow_retry</code> is <code>TRUE</code>, this message will only be displayed after the
+correct submission.  If <code>allow_retry</code> is <code>FALSE</code>, it will produce a second
+message alongside the <code>message</code> message value.</p></td>
+    </tr>
+    <tr>
+      <th>loading</th>
+      <td><p>Loading text to display as a placeholder while the question is loaded</p></td>
+    </tr>
+    <tr>
+      <th>submit_button</th>
+      <td><p>Label for the submit button. Defaults to <code>"Submit Answer"</code></p></td>
+    </tr>
+    <tr>
+      <th>try_again_button</th>
+      <td><p>Label for the try again button. Defaults to <code>"Submit Answer"</code></p></td>
+    </tr>
+    <tr>
+      <th>allow_retry</th>
+      <td><p>Allow retry for incorrect answers. Defaults to <code>FALSE</code>.</p></td>
+    </tr>
+    <tr>
+      <th>random_answer_order</th>
+      <td><p>Display answers in a random order.</p></td>
+    </tr>
+    <tr>
+      <th>options</th>
+      <td><p>Extra options to be stored in the question object.</p></td>
+    </tr>
+    </table>
 
 
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p>Useful links:</p><ul>
-<li><p><a href='https://github.com/rstudio/parsons'>https://github.com/rstudio/parsons</a></p></li>
-<li><p>Report bugs at <a href='https://github.com/rstudio/parsons/issues'>https://github.com/rstudio/parsons/issues</a></p></li>
-</ul>
-
-</div>
-
+    <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
+    <pre class="examples"><div class='input'><span class='co'>## Example of bucket problem inside a learn tutorial</span>
+<span class='kw'>if</span> (<span class='fu'><a href='https://rdrr.io/r/base/interactive.html'>interactive</a></span>()) {
+  <span class='kw pkg'>learnr</span><span class='kw ns'>::</span><span class='fu'><a href='https://rdrr.io/pkg/learnr/man/run_tutorial.html'>run_tutorial</a></span>(<span class='st'>"bucket"</span>, <span class='kw'>package</span> <span class='kw'>=</span> <span class='st'>"parsons"</span>)
+}</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#see-also">See also</a></li>
+      <li><a href="#arguments">Arguments</a></li>
+      <li><a href="#examples">Examples</a></li>
     </ul>
-
-    <h2>Author</h2>
-    <p><strong>Maintainer</strong>: Andrie de Vries <a href='mailto:apdevries@gmail.com'>apdevries@gmail.com</a></p>
-<p>Other contributors:</p><ul>
-<li><p>Barret Schloerke <a href='mailto:barret@rstudio.com'>barret@rstudio.com</a> [contributor]</p></li>
-</ul>
-
 
   </div>
 </div>

@@ -4,7 +4,7 @@
     <loc>https://rstudio.github.io/parsons/index.html</loc>
   </url>
   <url>
-    <loc>https://rstudio.github.io/parsons/reference/expectation_pass.html</loc>
+    <loc>https://rstudio.github.io/parsons/reference/bucket_problem.html</loc>
   </url>
   <url>
     <loc>https://rstudio.github.io/parsons/reference/expectations.html</loc>
@@ -16,7 +16,13 @@
     <loc>https://rstudio.github.io/parsons/reference/parsons_problem.html</loc>
   </url>
   <url>
+    <loc>https://rstudio.github.io/parsons/reference/question_bucket.html</loc>
+  </url>
+  <url>
     <loc>https://rstudio.github.io/parsons/reference/question_parsons.html</loc>
+  </url>
+  <url>
+    <loc>https://rstudio.github.io/parsons/reference/question_ui_try_again.bucket_question.html</loc>
   </url>
   <url>
     <loc>https://rstudio.github.io/parsons/reference/question_ui_try_again.parsons_question.html</loc>

@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>parsons: Create Parsons Programming Problems in 'learnr` Tutorials — parsons • parsons</title>
+<title>Disable input after student submitted answer. — question_ui_try_again.bucket_question • parsons</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,8 +42,8 @@
 
 
 
-<meta property="og:title" content="parsons: Create Parsons Programming Problems in 'learnr` Tutorials — parsons" />
-<meta property="og:description" content="Create Parsons Programming Problems in 'learnr' Tutorials." />
+<meta property="og:title" content="Disable input after student submitted answer. — question_ui_try_again.bucket_question" />
+<meta property="og:description" content="Disable input after student submitted answer." />
 <meta property="og:image" content="https://rstudio.github.io/parsons/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -137,39 +137,43 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>parsons: Create Parsons Programming Problems in 'learnr` Tutorials</h1>
-    <small class="dont-index">Source: <a href='https://github.com/rstudio/parsons/blob/master/R/parsons-package.R'><code>R/parsons-package.R</code></a></small>
-    <div class="hidden name"><code>parsons.Rd</code></div>
+    <h1>Disable input after student submitted answer.</h1>
+    <small class="dont-index">Source: <a href='https://github.com/rstudio/parsons/blob/master/R/question_bucket.R'><code>R/question_bucket.R</code></a></small>
+    <div class="hidden name"><code>question_ui_try_again.bucket_question.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Create Parsons Programming Problems in 'learnr' Tutorials.</p>
+    <p>Disable input after student submitted answer.</p>
     </div>
 
+    <pre class="usage"><span class='co'># S3 method for bucket_question</span>
+<span class='fu'>question_ui_try_again</span>(<span class='no'>question</span>, <span class='no'>answer_input</span>,
+  <span class='no'>...</span>)</pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>question</th>
+      <td><p>Question object</p></td>
+    </tr>
+    <tr>
+      <th>answer_input</th>
+      <td><p>user input value</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>not used</p></td>
+    </tr>
+    </table>
 
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p>Useful links:</p><ul>
-<li><p><a href='https://github.com/rstudio/parsons'>https://github.com/rstudio/parsons</a></p></li>
-<li><p>Report bugs at <a href='https://github.com/rstudio/parsons/issues'>https://github.com/rstudio/parsons/issues</a></p></li>
-</ul>
-
-</div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#see-also">See also</a></li>
+      <li><a href="#arguments">Arguments</a></li>
     </ul>
-
-    <h2>Author</h2>
-    <p><strong>Maintainer</strong>: Andrie de Vries <a href='mailto:apdevries@gmail.com'>apdevries@gmail.com</a></p>
-<p>Other contributors:</p><ul>
-<li><p>Barret Schloerke <a href='mailto:barret@rstudio.com'>barret@rstudio.com</a> [contributor]</p></li>
-</ul>
-
 
   </div>
 </div>

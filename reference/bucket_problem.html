@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>parsons: Create Parsons Programming Problems in 'learnr` Tutorials — parsons • parsons</title>
+<title>Create a bucket problem (experimental). — bucket_problem • parsons</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -42,8 +42,10 @@
 
 
 
-<meta property="og:title" content="parsons: Create Parsons Programming Problems in 'learnr` Tutorials — parsons" />
-<meta property="og:description" content="Create Parsons Programming Problems in 'learnr' Tutorials." />
+<meta property="og:title" content="Create a bucket problem (experimental). — bucket_problem" />
+<meta property="og:description" content="This function implements the bucket problem, as exposed by
+question_bucket(). Most users will only use this function inside a
+learnr tutorial, so please see the documentation at question_bucket()" />
 <meta property="og:image" content="https://rstudio.github.io/parsons/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -137,39 +139,73 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>parsons: Create Parsons Programming Problems in 'learnr` Tutorials</h1>
-    <small class="dont-index">Source: <a href='https://github.com/rstudio/parsons/blob/master/R/parsons-package.R'><code>R/parsons-package.R</code></a></small>
-    <div class="hidden name"><code>parsons.Rd</code></div>
+    <h1>Create a bucket problem (experimental).</h1>
+    <small class="dont-index">Source: <a href='https://github.com/rstudio/parsons/blob/master/R/bucket_problem.R'><code>R/bucket_problem.R</code></a></small>
+    <div class="hidden name"><code>bucket_problem.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Create Parsons Programming Problems in 'learnr' Tutorials.</p>
+    <p>This function implements the bucket problem, as exposed by
+<code><a href='question_bucket.html'>question_bucket()</a></code>. Most users will only use this function inside a
+<code>learnr</code> tutorial, so please see the documentation at <code><a href='question_bucket.html'>question_bucket()</a></code></p>
     </div>
 
+    <pre class="usage"><span class='fu'>bucket_problem</span>(<span class='no'>initial</span>, <span class='kw'>text</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"Drag from here"</span>,
+  <span class='st'>"Construct your solution here"</span>), <span class='kw'>header</span> <span class='kw'>=</span> <span class='kw'>NULL</span>, <span class='no'>input_id</span>, <span class='no'>group_name</span>,
+  <span class='kw'>class</span> <span class='kw'>=</span> <span class='st'>"default-sortable default-bucket"</span>,
+  <span class='kw'>options</span> <span class='kw'>=</span> <span class='fu'>sortable_options</span>(), <span class='kw'>orientation</span> <span class='kw'>=</span> <span class='fu'><a href='https://rdrr.io/r/base/c.html'>c</a></span>(<span class='st'>"horizontal"</span>,
+  <span class='st'>"vertical"</span>))</pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>initial</th>
+      <td><p>Vector with initial values for problem (to appear in left
+column).  Note: this must be a super-set of all answers.</p></td>
+    </tr>
+    <tr>
+      <th>text</th>
+      <td><p>Vector of headings for each column.</p></td>
+    </tr>
+    <tr>
+      <th>header</th>
+      <td><p>Text that appears at the top of the bucket list.  (This is
+encoded as an HTML <code>&lt;p&gt;</code> tag, so not strictly speaking a header.)</p></td>
+    </tr>
+    <tr>
+      <th>input_id</th>
+      <td><p>Character vector of <code>input_id</code> to pass (individually) to
+<code>rank_list()</code>.</p></td>
+    </tr>
+    <tr>
+      <th>group_name</th>
+      <td><p>Passed to <code>SortableJS</code> as the group name. Also the input
+value set in Shiny. (<code>input[[group_name]]</code>)</p></td>
+    </tr>
+    <tr>
+      <th>class</th>
+      <td><p>A css class applied to the rank list.  This can be used to
+define custom styling.</p></td>
+    </tr>
+    <tr>
+      <th>options</th>
+      <td><p>Options to be supplied to sortable_js object. See sortable_options for more details</p></td>
+    </tr>
+    <tr>
+      <th>orientation</th>
+      <td><p>Either <code>horizontal</code> or <code>vertical</code>, and specifies the
+layout of the components on the page.</p></td>
+    </tr>
+    </table>
 
-    <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
-
-    <div class='dont-index'><p>Useful links:</p><ul>
-<li><p><a href='https://github.com/rstudio/parsons'>https://github.com/rstudio/parsons</a></p></li>
-<li><p>Report bugs at <a href='https://github.com/rstudio/parsons/issues'>https://github.com/rstudio/parsons/issues</a></p></li>
-</ul>
-
-</div>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
     <h2>Contents</h2>
     <ul class="nav nav-pills nav-stacked">
-      <li><a href="#see-also">See also</a></li>
+      <li><a href="#arguments">Arguments</a></li>
     </ul>
-
-    <h2>Author</h2>
-    <p><strong>Maintainer</strong>: Andrie de Vries <a href='mailto:apdevries@gmail.com'>apdevries@gmail.com</a></p>
-<p>Other contributors:</p><ul>
-<li><p>Barret Schloerke <a href='mailto:barret@rstudio.com'>barret@rstudio.com</a> [contributor]</p></li>
-</ul>
-
 
   </div>
 </div>
