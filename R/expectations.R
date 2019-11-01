@@ -38,6 +38,7 @@ eval_expectation <- function(exp, answer_list) {
 }
 
 
+
 # pass_if -----------------------------------------------------------------
 
 #' Add expectations to a parsons problem.
@@ -59,6 +60,8 @@ pass_if <- function(f, message = NULL){
 pass_if.character <- function(f, message = NULL) {
   learnr::answer(f, correct = TRUE, message = message)
 }
+
+
 
 #' @export
 pass_if.default <- function(f, message = NULL) {
@@ -105,3 +108,64 @@ fail_if.function <- function(f, message = "Incorrect") {
     message = message
   )
 }
+
+
+
+# message_if --------------------------------------------------------------
+
+
+#' @export
+message_if <- function(f) {
+  f
+}
+
+#' @export
+eval_message <- function(f, answer_list) {
+  UseMethod("eval_message", f)
+}
+
+#' @export
+eval_message.character <- function(f, answer_list){
+  f
+}
+
+#' @export
+eval_message.default <- function(f, answer_list) {
+  # browser()
+  idx <- rlang::as_function(f)(answer_list)
+  paste(answer_list[idx], collapse = ", ")
+}
+
+
+# -------------------------------------------------------------------------
+
+all_of <- function(.x){
+  force(.x)
+  input <- .x
+  function(x)length(input) == length(x) && all(sort(input) == sort(x))
+}
+
+#' @export
+pass_if_all_of <- function(zz, message = NULL) {
+  # f <- function(x){
+  #   length(zz) == length(x) && all(sort(zz) == sort(.x))
+  # }
+  f <- function(x)~identical(sort(x), sort(zz))
+  expectation_pass(
+    fun = rlang::as_function(f),
+    message = message
+  )
+}
+
+#' @export
+contains_all <- function(x, ...){
+  y <- unlist(rlang::list2(...))
+  identical(sort(x), sort(y))
+}
+
+#' @export
+contains_any <- function(x, ...){
+  y <- unlist(rlang::list2(...))
+  any(x %in% y)
+}
+

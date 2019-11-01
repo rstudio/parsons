@@ -1,0 +1,50 @@
+---
+title: Bucket questions
+author: Andrie de Vries
+date: "`r Sys.Date()`"
+output: learnr::tutorial
+runtime: shiny_prerendered
+---
+
+
+
+```{r setup, include=FALSE}
+library(learnr)
+library(parsons)
+library(magrittr)
+# .shim()
+# devtools::load_all(".")
+```
+
+
+
+## Example
+
+Here is an example of `question_bucket()`, an experimental function in the `parsons` package.
+
+Drag the operating systems into the correct bucket:
+
+```{r Hello-world, echo=FALSE}
+
+supported <-  c("Red Hat", "Ubuntu", "Suse Linux", "CentOS")
+unsupported <- c( "Windows Server 2018", "Fedora", "Debian")
+
+question_bucket(
+  initial = c(supported, unsupported),
+  pass_if(~ contains_all(., supported)),
+  fail_if(
+    ~ length(.) < 4,
+    "Provide at least 4 answers"
+  ),
+  fail_if(
+    ~ length(.) > 4,
+    "Provide only 4 answers"
+  ),
+  fail_if(~ contains_any(., unsupported), 
+          message = ~ message_if(which(. %in% unsupported))
+  ),
+  text = c("Operating systems", "Supported by RStudio Connect")
+)
+```
+
+

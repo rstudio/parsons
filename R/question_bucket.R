@@ -1,30 +1,54 @@
 #' @importFrom utils modifyList
-#' @importFrom rlang list2
 NULL
 
-#' Parsons problem question for learnr tutorials (experimental).
+# is element a list of answers
+is_answer_list <- function(x){
+  all(vapply(x, function(x)inherits(x, "tutorial_question_answer"), FUN.VALUE = logical(1)))
+}
+
+
+# promotes embedded list of answers to one level higher
+promote_answerlist <- function(x){
+  z <- list()
+  for (i in seq_along(x)){
+    if (length(x[[i]]) == 1) {
+      z <- append(z, x[i])
+    } else {
+      y <- x[[i]]
+      if (is_answer_list(y)) {
+        for (j in seq_along(y))
+          z <- append(z, y[j])
+      } else {
+        z <- append(z, y)
+      }
+    }
+  }
+  z
+}
+
+
+#' bucket problem question for learnr tutorials (experimental).
 #'
-#' @template question_parsons_description
 #'
 #' @param initial Initial value of answer options. This must be a character vector.
 #'
 #' @param ... One or more answers.  Passed to [learnr::question()].
 #' @inheritParams learnr::question
-#' @inheritParams parsons_problem
+#' @inheritParams bucket_problem
 #'
-# @param type Must be "parsons_question"
+# @param type Must be "bucket_question"
 #' @param correct Text to print for a correct answer (defaults to "Correct!")
 #'
 #' @export
 #' @examples
-#' ## Example of parsons problem inside a learn tutorial
+#' ## Example of bucket problem inside a learn tutorial
 #' if (interactive()) {
-#'   learnr::run_tutorial("parsons", package = "parsons")
+#'   learnr::run_tutorial("bucket", package = "parsons")
 #' }
-question_parsons <- function(
+question_bucket <- function(
   initial,
   ...,
-  problem_type = c("base", "ggplot2", "tidyverse"),
+  text = c("Drag from here", "Construct your solution here"),
   orientation = c("horizontal", "vertical"),
   correct = "Correct!",
   incorrect = "Incorrect",
@@ -41,11 +65,18 @@ question_parsons <- function(
 
 ) {
   dots <- list2(...)
-  answers <- dots[vapply(dots, is_answer, FUN.VALUE = logical(1))]
+
+  # initialize answers with a dummy that can never appear
+  answers <- list(learnr::answer(paste(initial, sep = ""), correct = TRUE))
+
+  # append any other provided answers
+  answers <- append(
+    answers,
+    dots[vapply(dots, is_answer, FUN.VALUE = logical(1))]
+  )
   pass <- dots[vapply(dots, is.expectation_pass, FUN.VALUE = logical(1))]
   fail <- dots[vapply(dots, is.expectation_fail, FUN.VALUE = logical(1))]
 
-  problem_type <- match.arg(problem_type)
   orientation <- match.arg(orientation)
 
   z <- do.call(
@@ -54,7 +85,7 @@ question_parsons <- function(
       answers,
       list(
         text = NULL,
-        type = "parsons_question",
+        type = "bucket_question",
         correct =  correct,
         incorrect =  incorrect,
         try_again = try_again,
@@ -67,9 +98,9 @@ question_parsons <- function(
         random_answer_order = random_answer_order,
         options = list(
           initial = initial,
+          text = text,
           pass = pass,
           fail = fail,
-          problem_type = problem_type,
           sortable_options = options
         )
       )
@@ -80,7 +111,7 @@ question_parsons <- function(
 
 
 #' @export
-question_ui_initialize.parsons_question <- function(question, answer_input, ...) {
+question_ui_initialize.bucket_question <- function(question, answer_input, ...) {
 
   labels <- question$options$initial
   if (isTRUE(question$random_answer_order)) { # and we should randomize the order
@@ -89,16 +120,16 @@ question_ui_initialize.parsons_question <- function(question, answer_input, ...)
   }
 
 
-  # return the parsons htmlwidget
-  z <- parsons_problem(
+  # return the bucket htmlwidget
+  z <- bucket_problem(
     input_id = c(question$ids$question, question$ids$answer),
     initial = list(
       setdiff(labels, answer_input),
       answer_input
     ),
-    problem_type = question$options$problem_type,
+    text        = question$options$text,
     orientation = question$options$orientation,
-    options = question$options$sortable_options,
+    options     = question$options$sortable_options,
     ...
   )
   z
@@ -107,7 +138,7 @@ question_ui_initialize.parsons_question <- function(question, answer_input, ...)
 
 
 #' @export
-question_ui_completed.parsons_question <- function(question, answer_input, ...) {
+question_ui_completed.bucket_question <- function(question, answer_input, ...) {
   # TODO display correct values with X or √ compared to best match
   # TODO DON'T display correct values (listen to an option?)
 
@@ -123,15 +154,15 @@ question_ui_completed.parsons_question <- function(question, answer_input, ...) 
   )
 
   disable_all_tags(
-    parsons_problem(
+    bucket_problem(
       input_id = c(question$ids$question, question$ids$answer),
       initial = list(
         setdiff(labels, answer_input),
         answer_input
       ),
-      problem_type = question$options$problem_type,
+      text        = question$options$text,
       orientation = question$options$orientation,
-      options = new_options,
+      options     = new_options,
       ...
     )
   )
@@ -147,7 +178,7 @@ question_ui_completed.parsons_question <- function(question, answer_input, ...) 
 #' @param ... not used
 #'
 #' @export
-question_ui_try_again.parsons_question <- function(question, answer_input, ...) {
+question_ui_try_again.bucket_question <- function(question, answer_input, ...) {
   # TODO display correct values with X or √ compared to best match
   # TODO DON'T display correct values (listen to an option?)
   labels <- question$options$initial
@@ -161,15 +192,15 @@ question_ui_try_again.parsons_question <- function(question, answer_input, ...) 
   )
 
   disable_all_tags(
-    parsons_problem(
+    bucket_problem(
       input_id = c(question$ids$question, question$ids$answer),
       initial = list(
         setdiff(labels, answer_input),
         answer_input
       ),
-      problem_type = question$options$problem_type,
+      text        = question$options$text,
       orientation = question$options$orientation,
-      options = new_options,
+      options     = new_options,
       ...
     )
   )
@@ -178,7 +209,7 @@ question_ui_try_again.parsons_question <- function(question, answer_input, ...) 
 
 #' @inheritParams learnr::question_disable_input
 #' @export
-question_is_correct.parsons_question <- function(question, answer_input, ...) {
+question_is_correct.bucket_question <- function(question, answer_input, ...) {
   # for each possible answer, check if it matches
   for (answer in question$answers) {
     if (identical(answer$option, answer_input)) {
@@ -200,10 +231,12 @@ question_is_correct.parsons_question <- function(question, answer_input, ...) {
   # for each possible expectation, check if it matches
   fail_expectations <- question$options$fail
 
+  # browser()
+
   for (exp in fail_expectations) {
     if (eval_expectation(exp, answer_input)) {
       # if it matches, return the correct-ness and its message
-      return(mark_as(FALSE, messages = exp$message))
+      return(mark_as(FALSE, eval_message(exp$message, answer_input)))
     }
   }
 

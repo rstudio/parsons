@@ -16,3 +16,7 @@ css_dependency <- function(name, files) {
 parsons_dependencies <- function() {
   css_dependency("parsons", "parsons.css")
 }
+
+bucket_dependencies <- function() {
+  css_dependency("parsons", "parsons.css")
+}
